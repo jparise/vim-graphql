@@ -18,9 +18,10 @@ syn keyword graphqlNull     null
 syn match   graphqlNumber   "-\=\<\%(0\|[1-9]\d*\)\%(\.\d\+\)\=\%([eE][-+]\=\d\+\)\=\>"
 syn region  graphqlString	start=+"+  skip=+\\\\\|\\"+  end=+"\|$+
 
-syn keyword graphqlStructure query mutation subscription
-syn keyword graphqlStructure enum scalar type union on nextgroup=graphqlType skipwhite
-syn keyword graphqlStructure fragment nextgroup=graphqlIdentifier skipwhite
+syn keyword graphqlStructure enum scalar type union nextgroup=graphqlType skipwhite
+syn keyword graphqlStructure input interface subscription nextgroup=graphqlType skipwhite
+syn keyword graphqlStructure implements on nextgroup=graphqlType skipwhite
+syn keyword graphqlStructure query mutation fragment nextgroup=graphqlIdentifier skipwhite
 syn keyword graphqlStructure extend nextgroup=graphqlStructure skipwhite
 
 syn match graphqlDirective  "\<@\h\w*\>"   display
