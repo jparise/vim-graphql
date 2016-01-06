@@ -7,6 +7,11 @@ highlighting.
 
 ## Installation
 
+### Using [Plug][plug]
+
+1. Add `Plug 'jparise/vim-graphql'` to `~/.vimrc`
+2. `vim +PluginInstall +qall`
+
 ### Using [Vundle][v]
 
 1. Add `Plugin 'jparise/vim-graphql'` to `~/.vimrc`
@@ -19,4 +24,5 @@ highlighting.
 
 [gql]: https://facebook.github.io/graphql/
 [p]: https://github.com/tpope/vim-pathogen
+[plug]: https://github.com/junegunn/vim-plug
 [v]: https://github.com/gmarik/vundle
