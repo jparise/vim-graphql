@@ -22,6 +22,7 @@ syn keyword graphqlStructure enum scalar type union nextgroup=graphqlType skipwh
 syn keyword graphqlStructure input interface subscription nextgroup=graphqlType skipwhite
 syn keyword graphqlStructure implements on nextgroup=graphqlType skipwhite
 syn keyword graphqlStructure query mutation fragment nextgroup=graphqlIdentifier skipwhite
+syn keyword graphqlStructure directive nextgroup=graphqlDirective skipwhite
 syn keyword graphqlStructure extend nextgroup=graphqlStructure skipwhite
 
 syn match graphqlDirective  "\<@\h\w*\>"   display
