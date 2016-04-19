@@ -1,6 +1,6 @@
 # graphql.vim
 
-## Description
+[![Build Status](https://travis-ci.org/jparise/vim-graphql.svg)](https://travis-ci.org/jparise/vim-graphql)
 
 This is a vim plugin that provides [GraphQL][gql] file detection and syntax
 highlighting.
