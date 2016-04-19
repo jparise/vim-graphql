@@ -1,0 +1,36 @@
+# https://facebook.github.io/graphql/#sec-Int-Value
+Given graphql (Integers):
+  0
+  -1
+
+Execute (Integer assertions):
+  AssertEqual SyntaxOf("0"), 'graphqlNumber'
+  AssertEqual SyntaxOf("-1"), 'graphqlNumber'
+
+# https://facebook.github.io/graphql/#sec-Float-Value
+Given graphql (Floats):
+  1.0
+  -1.0
+  1e10
+  1E10
+  1e-10
+  1e+10
+  1.0e10
+
+Execute (Float assertions):
+  AssertEqual SyntaxOf("1.0"), 'graphqlNumber'
+  AssertEqual SyntaxOf("-1.0"), 'graphqlNumber'
+  AssertEqual SyntaxOf("1e10"), 'graphqlNumber'
+  AssertEqual SyntaxOf("1E10"), 'graphqlNumber'
+  AssertEqual SyntaxOf("1e-10"), 'graphqlNumber'
+  AssertEqual SyntaxOf("1e+10"), 'graphqlNumber'
+  AssertEqual SyntaxOf("1.0e10"), 'graphqlNumber'
+
+# https://facebook.github.io/graphql/#sec-Boolean-Value
+Given graphql (Booleans):
+  true
+  false
+
+Execute (Boolean assertions):
+  AssertEqual SyntaxOf("true"), 'graphqlBoolean'
+  AssertEqual SyntaxOf("false"), 'graphqlBoolean'

@@ -26,3 +26,10 @@ highlighting.
 [p]: https://github.com/tpope/vim-pathogen
 [plug]: https://github.com/junegunn/vim-plug
 [v]: https://github.com/gmarik/vundle
+
+## Testing
+
+The test suite uses [Vader.vim](https://github.com/junegunn/vader.vim). To run
+all of the tests from the command line:
+
+    $ make test

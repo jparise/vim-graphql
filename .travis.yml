@@ -1,0 +1,8 @@
+language: vim
+
+os:
+  - linux
+  - osx
+
+script:
+  - make test
