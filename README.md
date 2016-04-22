@@ -3,8 +3,8 @@
 [![Build Status](https://travis-ci.org/jparise/vim-graphql.svg)](https://travis-ci.org/jparise/vim-graphql)
 
 This is a [Vim](http://www.vim.org/) plugin that provides [GraphQL][gql] file
-detection and syntax highlighting. It currently targets the *April 2016* draft
-specification.
+detection and syntax highlighting. It currently targets the [April 2016 draft
+specification][spec].
 
 ## Installation
 
@@ -30,7 +30,8 @@ line:
 
     $ make test
 
-[gql]: https://facebook.github.io/graphql/
+[gql]: http://graphql.org/
+[spec]: https://facebook.github.io/graphql/
 [Pathogen]: https://github.com/tpope/vim-pathogen
 [Plug]: https://github.com/junegunn/vim-plug
 [Vundle]: https://github.com/gmarik/vundle
