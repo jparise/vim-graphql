@@ -34,3 +34,12 @@ Given graphql (Booleans):
 Execute (Boolean assertions):
   AssertEqual SyntaxOf("true"), 'graphqlBoolean'
   AssertEqual SyntaxOf("false"), 'graphqlBoolean'
+
+# https://facebook.github.io/graphql/#sec-String-Value
+Given graphql (Strings):
+  ""
+  "Hello World"
+
+Execute (String assertions):
+  AssertEqual SyntaxOf('""'), 'graphqlString'
+  AssertEqual SyntaxOf('"Hello World"'), 'graphqlString'
