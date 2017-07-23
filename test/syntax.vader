@@ -4,8 +4,8 @@ Given graphql (Integers):
   -1
 
 Execute (Integer assertions):
-  AssertEqual SyntaxOf("0"), 'graphqlNumber'
-  AssertEqual SyntaxOf("-1"), 'graphqlNumber'
+  AssertEqual 'graphqlNumber', SyntaxOf('0')
+  AssertEqual 'graphqlNumber', SyntaxOf('-1')
 
 # https://facebook.github.io/graphql/#sec-Float-Value
 Given graphql (Floats):
@@ -18,13 +18,13 @@ Given graphql (Floats):
   1.0e10
 
 Execute (Float assertions):
-  AssertEqual SyntaxOf("1.0"), 'graphqlNumber'
-  AssertEqual SyntaxOf("-1.0"), 'graphqlNumber'
-  AssertEqual SyntaxOf("1e10"), 'graphqlNumber'
-  AssertEqual SyntaxOf("1E10"), 'graphqlNumber'
-  AssertEqual SyntaxOf("1e-10"), 'graphqlNumber'
-  AssertEqual SyntaxOf("1e+10"), 'graphqlNumber'
-  AssertEqual SyntaxOf("1.0e10"), 'graphqlNumber'
+  AssertEqual 'graphqlNumber', SyntaxOf('1.0')
+  AssertEqual 'graphqlNumber', SyntaxOf('-1.0')
+  AssertEqual 'graphqlNumber', SyntaxOf('1e10')
+  AssertEqual 'graphqlNumber', SyntaxOf('1E10')
+  AssertEqual 'graphqlNumber', SyntaxOf('1e-10')
+  AssertEqual 'graphqlNumber', SyntaxOf('1e+10')
+  AssertEqual 'graphqlNumber', SyntaxOf('1.0e10')
 
 # https://facebook.github.io/graphql/#sec-Boolean-Value
 Given graphql (Booleans):
@@ -32,8 +32,8 @@ Given graphql (Booleans):
   false
 
 Execute (Boolean assertions):
-  AssertEqual SyntaxOf("true"), 'graphqlBoolean'
-  AssertEqual SyntaxOf("false"), 'graphqlBoolean'
+  AssertEqual 'graphqlBoolean', SyntaxOf('true')
+  AssertEqual 'graphqlBoolean', SyntaxOf('false')
 
 # https://facebook.github.io/graphql/#sec-String-Value
 Given graphql (Strings):
@@ -41,8 +41,8 @@ Given graphql (Strings):
   "Hello World"
 
 Execute (String assertions):
-  AssertEqual SyntaxOf('""'), 'graphqlString'
-  AssertEqual SyntaxOf('"Hello World"'), 'graphqlString'
+  AssertEqual 'graphqlString', SyntaxOf('""')
+  AssertEqual 'graphqlString', SyntaxOf('"Hello World"')
 
 # https://facebook.github.io/graphql/#sec-Type-Conditions
 Given graphql (Type Conditions):
