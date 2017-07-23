@@ -43,3 +43,16 @@ Given graphql (Strings):
 Execute (String assertions):
   AssertEqual SyntaxOf('""'), 'graphqlString'
   AssertEqual SyntaxOf('"Hello World"'), 'graphqlString'
+
+# https://facebook.github.io/graphql/#sec-Inline-Fragments
+Given graphql (Inline Framents):
+  query {
+    field
+      ... on SomeType {
+        anotherField
+      }
+  }
+
+Execute (Inline Fragment assertions):
+  AssertEqual SyntaxOf("on"), 'graphqlInlineStructure'
+  AssertEqual SyntaxOf("SomeType"), 'graphqlType'

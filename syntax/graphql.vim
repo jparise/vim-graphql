@@ -20,10 +20,12 @@ syn region  graphqlString	start=+"+  skip=+\\\\\|\\"+  end=+"\|$+
 
 syn keyword graphqlStructure enum scalar type union nextgroup=graphqlType skipwhite
 syn keyword graphqlStructure input interface subscription nextgroup=graphqlType skipwhite
-syn keyword graphqlStructure implements on nextgroup=graphqlType skipwhite
+syn keyword graphqlStructure implements nextgroup=graphqlType skipwhite
 syn keyword graphqlStructure query mutation fragment nextgroup=graphqlIdentifier skipwhite
 syn keyword graphqlStructure directive nextgroup=graphqlDirective skipwhite
 syn keyword graphqlStructure extend nextgroup=graphqlStructure skipwhite
+
+syn keyword graphqlInlineStructure on nextgroup=graphqlType skipwhite
 
 syn match graphqlDirective  "\<@\h\w*\>"   display
 syn match graphqlVariable   "\<\$\h\w*\>"  display
@@ -52,6 +54,7 @@ hi def link graphqlDirective        PreProc
 hi def link graphqlIdentifier       Identifier
 hi def link graphqlMetaFields       Special
 hi def link graphqlStructure        Structure
+hi def link graphqlInlineStructure  Structure
 hi def link graphqlType             Type
 hi def link graphqlVariable         Identifier
 
