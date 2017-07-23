@@ -1,6 +1,6 @@
 .PHONY: test
 
-all:
+all: test
 
 test: test/vader.vim
 	cd test && vim -Nu vimrc -c 'Vader! *' > /dev/null
