@@ -44,15 +44,40 @@ Execute (String assertions):
   AssertEqual SyntaxOf('""'), 'graphqlString'
   AssertEqual SyntaxOf('"Hello World"'), 'graphqlString'
 
+# https://facebook.github.io/graphql/#sec-Type-Conditions
+Given graphql (Type Conditions):
+  query FragmentTyping {
+    profiles(handles: ["zuck", "cocacola"]) {
+      id
+      ...userFragment
+    }
+  }
+
+  fragment userFragment on User {
+    friends {
+      count
+    }
+  }
+
+Execute (Type Condition assertions):
+  AssertEqual 'graphqlOperator', SyntaxOf('\M...')
+  AssertEqual 'graphqlIdentifier', SyntaxOf('userFragment')
+  AssertEqual 'graphqlStructure', SyntaxOf('fragment')
+  AssertEqual 'graphqlKeyword', SyntaxOf('on')
+  AssertEqual 'graphqlType', SyntaxOf('User')
+
 # https://facebook.github.io/graphql/#sec-Inline-Fragments
 Given graphql (Inline Framents):
-  query {
-    field
-      ... on SomeType {
-        anotherField
+  query inlineFragmentTyping {
+    profiles(handles: ["zuck", "cocacola"]) {
+      id
+      ... on User {
+        name
       }
+    }
   }
 
 Execute (Inline Fragment assertions):
-  AssertEqual SyntaxOf("on"), 'graphqlInlineStructure'
-  AssertEqual SyntaxOf("SomeType"), 'graphqlType'
+  AssertEqual 'graphqlOperator', SyntaxOf('\M...')
+  AssertEqual 'graphqlKeyword', SyntaxOf('on')
+  AssertEqual 'graphqlType', SyntaxOf('User')
