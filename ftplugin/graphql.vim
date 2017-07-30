@@ -11,4 +11,3 @@ setlocal comments=:#
 setlocal commentstring=#\ %s
 setlocal formatoptions-=t
 setlocal iskeyword+=$,@-@
-setlocal nocindent

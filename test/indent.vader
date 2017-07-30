@@ -1,0 +1,60 @@
+Given graphql:
+  query {
+
+Do (insert new field within query):
+  Gofield
+
+Expect (new field is indented within query):
+  query {
+    field
+
+Given graphql:
+  query {
+    field1
+
+Do (add new field within query):
+  Gofield2
+
+Expect (new field is indented at existing level):
+  query {
+    field1
+    field2
+
+Given graphql:
+  query {
+    field
+
+Do (close the existing block):
+  Go}
+
+Expect (the block is closed at the original level):
+  query {
+    field
+  }
+
+Given graphql:
+  query {
+    field {
+      id
+
+Do (close the existing blocks):
+  Go}\<CR>}
+
+Expect (existing blocks are closed at their original levels):
+  query {
+    field {
+      id
+    }
+  }
+
+Given graphql:
+  query {
+    field
+
+Do (add a comment):
+  Go# comment
+
+Expect (new comment is indented at the existing level):
+  query {
+    field
+    # comment
