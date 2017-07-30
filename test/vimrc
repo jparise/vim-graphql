@@ -1,6 +1,5 @@
-set nocompatible
 filetype off
-set rtp+=../
 set rtp+=vader.vim
+set rtp+=../
 filetype plugin indent on
 syntax enable
