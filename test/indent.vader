@@ -1,3 +1,6 @@
+Before:
+  setlocal shiftwidth=2
+
 Given graphql:
   query {
 
