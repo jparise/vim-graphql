@@ -4,7 +4,7 @@
 
 This is a [Vim](http://www.vim.org/) plugin that provides [GraphQL][gql] file
 detection, syntax highlighting, and indentation. It currently targets the
-[April 2016 draft specification][spec].
+[October 2016 draft specification][spec].
 
 ## Installation
 
