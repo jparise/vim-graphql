@@ -1,5 +1,10 @@
 Before:
+  Save g:graphql_javascript_tags
+
   source ../after/syntax/javascript/graphql.vim
+
+After:
+  Restore
 
 Given javascript (Query):
   const query = gql`
@@ -15,3 +20,13 @@ Execute (Syntax assertions):
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
   AssertEqual 'graphqlTemplateString', SyntaxOf('`')
   AssertEqual 'graphqlIdentifier', SyntaxOf('user')
+
+Given javascript (Custom tag):
+  const query = GraphQL.Tag`
+    { }
+  `
+
+Execute (JavaScript tag names can be customized):
+  let g:graphql_javascript_tags = ['GraphQL.Tag']
+  source ../after/syntax/javascript/graphql.vim
+  AssertEqual 'graphqlTaggedTemplate', SyntaxOf('GraphQL.Tag')
