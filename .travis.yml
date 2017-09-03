@@ -1,6 +1,10 @@
-language: vim
+language: python
 before_install: |
   sudo apt-get -qq update
   sudo apt-get -y install vim
+install:
+  pip install vim-vint==0.3.14
+cache: pip
 script:
+  - make lint
   - make test
