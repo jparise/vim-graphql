@@ -1,3 +1,3 @@
-if (!exists('g:graphql_tag_names'))
-  let g:graphql_tag_names = ['gql', 'graphql']
+if (!exists('g:graphql_javascript_tags'))
+  let g:graphql_javascript_tags = ['gql', 'graphql', 'Relay.QL']
 endif
