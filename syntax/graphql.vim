@@ -2,7 +2,7 @@
 " Language: GraphQL
 " Maintainer: Jon Parise <jon@indelible.org>
 
-if exists("b:current_syntax")
+if exists('b:current_syntax')
     finish
 endif
 
@@ -60,4 +60,4 @@ hi def link graphqlVariable         Identifier
 
 syn sync minlines=500
 
-let b:current_syntax = "graphql"
+let b:current_syntax = 'graphql'
