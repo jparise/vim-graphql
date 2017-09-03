@@ -1,0 +1,17 @@
+Before:
+  source ../after/syntax/javascript/graphql.vim
+
+Given javascript (Query):
+  const query = gql`
+    {
+      user(id: 5) {
+        firstName
+        lastName
+      }
+    }
+  `
+
+Execute (Syntax assertions):
+  AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
+  AssertEqual 'graphqlTemplateString', SyntaxOf('`')
+  AssertEqual 'graphqlIdentifier', SyntaxOf('user')

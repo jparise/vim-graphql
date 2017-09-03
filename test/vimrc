@@ -1,5 +1,6 @@
 filetype off
-set rtp+=vader.vim
+set rtp+=vader.vim/
+set rtp+=vim-javascript/
 set rtp+=../
 filetype plugin indent on
 syntax enable
