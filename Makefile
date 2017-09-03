@@ -1,6 +1,9 @@
 .PHONY: test
 
-all: test
+all: lint test
+
+lint:
+	vint -s after ftdetect ftplugin indent plugin syntax
 
 test: test/vader.vim test/vim-javascript
 	cd test && vim -Nu vimrc -c 'Vader! *' > /dev/null
