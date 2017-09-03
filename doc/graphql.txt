@@ -1,0 +1,31 @@
+*graphql.txt* GraphQL plug-in for Vim                                *graphql*
+
+CONTENTS                                                    *graphql-contents*
+
+1. Introduction         |graphql-intro|
+1. JavaScript Support   |graphql-javascript|
+
+
+INTRODUCTION                                                   *graphql-intro*
+
+This plugin provides GraphQL (http://graphql.org/) file detection, syntax
+highlighting, and indentation.
+
+
+JAVASCRIPT                                                *graphql-javascript*
+
+When the vim-javascript (https://github.com/pangloss/vim-javascript) plugin is
+installed, GraphQL syntax support in ES6 tagged template literals is enabled.
+
+                                                  *graphql-javascript-options*
+
+                                                   *g:graphql_javascript_tags*
+|g:graphql_javascript_tags|                                    list of strings
+
+  Default: `['gql', 'graphql', 'Relay.QL']`
+
+  This variable lists the JavaScript/ES6 template literal tag names that will
+  be recognized as containing GraphQL template strings.
+
+------------------------------------------------------------------------------
+vim:tw=78:ft=help:norl:
