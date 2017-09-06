@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.graphql,*.gql setfiletype graphql
+au BufRead,BufNewFile *.graphql,*.graphqls,*.gql setfiletype graphql
