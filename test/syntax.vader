@@ -81,3 +81,14 @@ Execute (Inline Fragment assertions):
   AssertEqual 'graphqlOperator', SyntaxOf('\M...')
   AssertEqual 'graphqlKeyword', SyntaxOf('on')
   AssertEqual 'graphqlType', SyntaxOf('User')
+
+Given graphql (Schema):
+  schema {
+    query: QueryType
+    mutation: MutationType
+  }
+
+Execute (Schema assertions):
+  AssertEqual 'graphqlStructure', SyntaxOf('schema')
+  AssertEqual 'graphqlIdentifier', SyntaxOf('query')
+  AssertEqual 'graphqlType', SyntaxOf('QueryType')
