@@ -1,2 +1,3 @@
-test/vim-javascript/
+doc/tags
 test/vader.vim/
+test/vim-javascript/
