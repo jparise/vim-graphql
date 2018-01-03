@@ -39,10 +39,13 @@ Execute (Boolean assertions):
 Given graphql (Strings):
   ""
   "Hello World"
+  """Triple-quoted
+  string"""
 
 Execute (String assertions):
   AssertEqual 'graphqlString', SyntaxOf('""')
   AssertEqual 'graphqlString', SyntaxOf('"Hello World"')
+  AssertEqual 'graphqlString', SyntaxOf('"""Triple-quoted\nstring"""')
 
 # https://facebook.github.io/graphql/#sec-Type-Conditions
 Given graphql (Type Conditions):
