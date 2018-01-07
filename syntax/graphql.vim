@@ -8,14 +8,14 @@ endif
 
 syn match graphqlComment    "#.*$" contains=@Spell
 
-syn match graphqlOperator   "="
-syn match graphqlOperator   "!"
-syn match graphqlOperator   "|"
-syn match graphqlOperator   "\M..."
+syn match graphqlOperator   "=" display
+syn match graphqlOperator   "!" display
+syn match graphqlOperator   "|" display
+syn match graphqlOperator   "\M..." display
 
 syn keyword graphqlBoolean  true false
 syn keyword graphqlNull     null
-syn match   graphqlNumber   "-\=\<\%(0\|[1-9]\d*\)\%(\.\d\+\)\=\%([eE][-+]\=\d\+\)\=\>"
+syn match   graphqlNumber   "-\=\<\%(0\|[1-9]\d*\)\%(\.\d\+\)\=\%([eE][-+]\=\d\+\)\=\>" display
 syn region  graphqlString   start=+"+  skip=+\\\\\|\\"+  end=+"\|$+
 syn region  graphqlString   start=+"""+ end=+"""+
 
