@@ -19,7 +19,7 @@ Given javascript (Query):
 Execute (Syntax assertions):
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
   AssertEqual 'graphqlTemplateString', SyntaxOf('`')
-  AssertEqual 'graphqlIdentifier', SyntaxOf('user')
+  AssertEqual 'graphqlName', SyntaxOf('user')
 
 Given javascript (Custom tag):
   const query = GraphQL.Tag`

@@ -64,7 +64,7 @@ Given graphql (Type Conditions):
 
 Execute (Type Condition assertions):
   AssertEqual 'graphqlOperator', SyntaxOf('\M...')
-  AssertEqual 'graphqlIdentifier', SyntaxOf('userFragment')
+  AssertEqual 'graphqlName', SyntaxOf('userFragment')
   AssertEqual 'graphqlStructure', SyntaxOf('fragment')
   AssertEqual 'graphqlKeyword', SyntaxOf('on')
   AssertEqual 'graphqlType', SyntaxOf('User')
@@ -93,5 +93,5 @@ Given graphql (Schema):
 
 Execute (Schema assertions):
   AssertEqual 'graphqlStructure', SyntaxOf('schema')
-  AssertEqual 'graphqlIdentifier', SyntaxOf('query')
+  AssertEqual 'graphqlName', SyntaxOf('query')
   AssertEqual 'graphqlType', SyntaxOf('QueryType')

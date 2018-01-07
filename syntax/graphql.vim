@@ -24,7 +24,7 @@ syn keyword graphqlKeyword on nextgroup=graphqlType skipwhite
 syn keyword graphqlStructure enum scalar type union nextgroup=graphqlType skipwhite
 syn keyword graphqlStructure input interface subscription nextgroup=graphqlType skipwhite
 syn keyword graphqlStructure implements nextgroup=graphqlType skipwhite
-syn keyword graphqlStructure query mutation fragment nextgroup=graphqlIdentifier skipwhite
+syn keyword graphqlStructure query mutation fragment nextgroup=graphqlName skipwhite
 syn keyword graphqlStructure directive nextgroup=graphqlDirective skipwhite
 syn keyword graphqlStructure extend nextgroup=graphqlStructure skipwhite
 syn keyword graphqlStructure schema nextgroup=graphqlFold skipwhite
@@ -32,7 +32,7 @@ syn keyword graphqlStructure schema nextgroup=graphqlFold skipwhite
 syn match graphqlDirective  "\<@\h\w*\>"   display
 syn match graphqlVariable   "\<\$\h\w*\>"  display
 
-syn match graphqlIdentifier "\<\h\w*\>"    display contained
+syn match graphqlName       "\<\h\w*\>"    display contained
 syn match graphqlType       "\<_*\u\w*\>"  display contained
 syn match graphqlConstant   "\<[A-Z_]\+\>" display contained
 
@@ -53,7 +53,7 @@ hi def link graphqlString           String
 
 hi def link graphqlConstant         Constant
 hi def link graphqlDirective        PreProc
-hi def link graphqlIdentifier       Identifier
+hi def link graphqlName             Identifier
 hi def link graphqlMetaFields       Special
 hi def link graphqlKeyword          Keyword
 hi def link graphqlStructure        Structure
