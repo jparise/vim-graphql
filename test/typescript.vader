@@ -1,0 +1,32 @@
+Before:
+  Save g:graphql_javascript_tags
+
+  source ../after/syntax/typescript/graphql.vim
+
+After:
+  Restore
+
+Given typescript (Query):
+  const query = gql`
+    {
+      user(id: 5) {
+        firstName
+        lastName
+      }
+    }
+  `
+
+Execute (Syntax assertions):
+  AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
+  AssertEqual 'graphqlTemplateString', SyntaxOf('`')
+  AssertEqual 'graphqlName', SyntaxOf('user')
+
+Given typescript (Custom tag):
+  const query = GraphQL.Tag`
+    { }
+  `
+
+Execute (JavaScript tag names can be customized):
+  let g:graphql_javascript_tags = ['GraphQL.Tag']
+  source ../after/syntax/typescript/graphql.vim
+  AssertEqual 'graphqlTaggedTemplate', SyntaxOf('GraphQL.Tag')
