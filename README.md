@@ -23,10 +23,11 @@ detection, syntax highlighting, and indentation. It currently targets the
 1. `cd ~/.vim/bundle`
 2. `git clone https://github.com/jparise/vim-graphql.git`
 
-## JavaScript Support
+## JavaScript / TypeScript Support
 
-When the [vim-javascript](https://github.com/pangloss/vim-javascript) plugin is
-installed, GraphQL syntax support in ES6 tagged template literals is enabled.
+When the [vim-javascript](https://github.com/pangloss/vim-javascript) or
+[yats](https://github.com/HerringtonDarkholme/yats.vim) plugins are installed,
+GraphQL syntax support in ES6 tagged template literals is enabled.
 
 ## Testing
 
