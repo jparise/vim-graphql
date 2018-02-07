@@ -1,4 +1,4 @@
-# https://facebook.github.io/graphql/#sec-Int-Value
+# https://facebook.github.io/graphql/October2016/#sec-Int-Value
 Given graphql (Integers):
   0
   -1
@@ -7,7 +7,7 @@ Execute (Integer assertions):
   AssertEqual 'graphqlNumber', SyntaxOf('0')
   AssertEqual 'graphqlNumber', SyntaxOf('-1')
 
-# https://facebook.github.io/graphql/#sec-Float-Value
+# https://facebook.github.io/graphql/October2016/#sec-Float-Value
 Given graphql (Floats):
   1.0
   -1.0
@@ -26,7 +26,7 @@ Execute (Float assertions):
   AssertEqual 'graphqlNumber', SyntaxOf('1e+10')
   AssertEqual 'graphqlNumber', SyntaxOf('1.0e10')
 
-# https://facebook.github.io/graphql/#sec-Boolean-Value
+# https://facebook.github.io/graphql/October2016/#sec-Boolean-Value
 Given graphql (Booleans):
   true
   false
@@ -35,7 +35,7 @@ Execute (Boolean assertions):
   AssertEqual 'graphqlBoolean', SyntaxOf('true')
   AssertEqual 'graphqlBoolean', SyntaxOf('false')
 
-# https://facebook.github.io/graphql/#sec-String-Value
+# https://facebook.github.io/graphql/October2016/#sec-String-Value
 Given graphql (Strings):
   ""
   "Hello World"
@@ -47,7 +47,7 @@ Execute (String assertions):
   AssertEqual 'graphqlString', SyntaxOf('"Hello World"')
   AssertEqual 'graphqlString', SyntaxOf('"""Triple-quoted\nstring"""')
 
-# https://facebook.github.io/graphql/#sec-Type-Conditions
+# https://facebook.github.io/graphql/October2016/#sec-Type-Conditions
 Given graphql (Type Conditions):
   query FragmentTyping {
     profiles(handles: ["zuck", "cocacola"]) {
@@ -69,7 +69,7 @@ Execute (Type Condition assertions):
   AssertEqual 'graphqlKeyword', SyntaxOf('on')
   AssertEqual 'graphqlType', SyntaxOf('User')
 
-# https://facebook.github.io/graphql/#sec-Inline-Fragments
+# https://facebook.github.io/graphql/October2016/#sec-Inline-Fragments
 Given graphql (Inline Framents):
   query inlineFragmentTyping {
     profiles(handles: ["zuck", "cocacola"]) {

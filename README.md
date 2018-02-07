@@ -36,7 +36,7 @@ line:
     $ make test
 
 [gql]: http://graphql.org/
-[spec]: https://facebook.github.io/graphql/
+[spec]: https://facebook.github.io/graphql/October2016/
 [Pathogen]: https://github.com/tpope/vim-pathogen
 [Plug]: https://github.com/junegunn/vim-plug
 [Vundle]: https://github.com/gmarik/vundle
