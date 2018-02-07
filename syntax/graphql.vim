@@ -31,10 +31,9 @@ syn keyword graphqlStructure schema nextgroup=graphqlFold skipwhite
 
 syn match graphqlDirective  "\<@\h\w*\>"   display
 syn match graphqlVariable   "\<\$\h\w*\>"  display
-
-syn match graphqlName       "\<\h\w*\>"    display contained
-syn match graphqlType       "\<_*\u\w*\>"  display contained
-syn match graphqlConstant   "\<[A-Z_]\+\>" display contained
+syn match graphqlName       "\<\h\w*\>"    display
+syn match graphqlType       "\<_*\u\w*\>"  display
+syn match graphqlConstant   "\<[A-Z_]\+\>" display
 
 syn keyword graphqlMetaFields __schema __type __typename
 

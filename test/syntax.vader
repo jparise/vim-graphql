@@ -47,6 +47,24 @@ Execute (String assertions):
   AssertEqual 'graphqlString', SyntaxOf('"Hello World"')
   AssertEqual 'graphqlString', SyntaxOf('"""Triple-quoted\nstring"""')
 
+# https://facebook.github.io/graphql/October2016/#sec-Language.Arguments
+Given graphql (Arguments):
+  query queryName($site: Site = MOBILE) {
+    user(id: 4) {
+      profilePic(size: 100)
+    }
+  }
+
+Execute (Argument assertions):
+  AssertEqual 'graphqlName', SyntaxOf('queryName')
+  AssertEqual 'graphqlVariable', SyntaxOf('$site')
+  AssertEqual 'graphqlType', SyntaxOf('Site')
+  AssertEqual 'graphqlConstant', SyntaxOf('MOBILE')
+  AssertEqual 'graphqlName', SyntaxOf('id')
+  AssertEqual 'graphqlNumber', SyntaxOf('4')
+  AssertEqual 'graphqlName', SyntaxOf('size')
+  AssertEqual 'graphqlNumber', SyntaxOf('100')
+
 # https://facebook.github.io/graphql/October2016/#sec-Type-Conditions
 Given graphql (Type Conditions):
   query FragmentTyping {
