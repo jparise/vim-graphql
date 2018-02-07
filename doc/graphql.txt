@@ -3,7 +3,8 @@
 CONTENTS                                                    *graphql-contents*
 
 1. Introduction         |graphql-intro|
-1. JavaScript Support   |graphql-javascript|
+2. JavaScript Support   |graphql-javascript|
+3. TypeScript Support   |graphql-typescript|
 
 
 INTRODUCTION                                                   *graphql-intro*
@@ -26,6 +27,15 @@ installed, GraphQL syntax support in ES6 tagged template literals is enabled.
 
   This variable lists the JavaScript/ES6 template literal tag names that will
   be recognized as containing GraphQL template strings.
+
+
+TYPESCRIPT                                                *graphql-typescript*
+
+When the yats (https://github.com/HerringtonDarkholme/yats.vim) plugin is
+installed, GraphQL syntax support in ES6 tagged template literals is enabled.
+
+TypeScript support also uses |graphql-javascript-options| to customize the
+list of recognized template tag names.
 
 ------------------------------------------------------------------------------
 vim:tw=78:ft=help:norl:
