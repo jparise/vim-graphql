@@ -23,6 +23,14 @@ detection, syntax highlighting, and indentation. It currently targets the
 1. `cd ~/.vim/bundle`
 2. `git clone https://github.com/jparise/vim-graphql.git`
 
+## Syntax Highlighting
+
+Complete syntax highlighting is enable for the `graphql` [filetype][]. This
+filetype is automatically selected for file names ending in `.graphql`,
+`.graphqls`, and `.gql`.
+
+[filetype]: http://vimdoc.sourceforge.net/htmldoc/filetype.html
+
 ## JavaScript / TypeScript Support
 
 When the [vim-javascript](https://github.com/pangloss/vim-javascript) or
