@@ -27,7 +27,23 @@ detection, syntax highlighting, and indentation. It currently targets the
 
 When the [vim-javascript](https://github.com/pangloss/vim-javascript) or
 [yats](https://github.com/HerringtonDarkholme/yats.vim) plugins are installed,
-GraphQL syntax support in ES6 tagged template literals is enabled.
+GraphQL syntax support in [ES6 tagged template literals][es6-tags] is enabled.
+
+[es6-tags]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates
+
+```javascript
+const query = gql`
+  {
+    user(id: 5) {
+      firstName
+      lastName
+    }
+  }
+`
+```
+
+The list of recognized tag names is defined by the `g:graphql_javascript_tags`
+variable, which defaults to `["gql", "graphql", "Relay.QL"]`.
 
 ## Testing
 
