@@ -7,7 +7,7 @@ if exists('s:current_syntax')
   let b:current_syntax = s:current_syntax
 endif
 
-syntax region graphqlTemplateString start=+`+ skip=+\\\(`\|$\)+ end=+`+ contains=@GraphQLSyntax,typescriptTemplateTag extend
+syntax region graphqlTemplateString start=+`+ skip=+\\`+ end=+`+ contains=@GraphQLSyntax,typescriptTemplateTag extend
 exec 'syntax match graphqlTaggedTemplate +\%(' . join(g:graphql_javascript_tags, '\|') . '\)\%(`\)\@=+ nextgroup=graphqlTemplateString'
 
 hi def link graphqlTemplateString typescriptTemplate

@@ -7,7 +7,7 @@ if exists('s:current_syntax')
   let b:current_syntax = s:current_syntax
 endif
 
-syntax region graphqlTemplateString start=+`+ skip=+\\\(`\|$\)+ end=+`+ contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend
+syntax region graphqlTemplateString start=+`+ skip=+\\`+ end=+`+ contains=@GraphQLSyntax,graphqlTemplateExpression,jsSpecial extend
 exec 'syntax match graphqlTaggedTemplate +\%(' . join(g:graphql_javascript_tags, '\|') . '\)\%(`\)\@=+ nextgroup=graphqlTemplateString'
 
 hi def link graphqlTemplateString jsTemplateString
