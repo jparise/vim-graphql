@@ -6,7 +6,7 @@ Before:
 After:
   Restore
 
-Given javascript (Query):
+Given javascript (Template):
   const query = gql`
     {
       user(id: 5) {
@@ -14,7 +14,7 @@ Given javascript (Query):
         lastName
       }
     }
-  `
+  `;
 
 Execute (Syntax assertions):
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
@@ -24,7 +24,7 @@ Execute (Syntax assertions):
 Given javascript (Custom tag):
   const query = GraphQL.Tag`
     { }
-  `
+  `;
 
 Execute (JavaScript tag names can be customized):
   let g:graphql_javascript_tags = ['GraphQL.Tag']
