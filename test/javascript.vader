@@ -26,7 +26,13 @@ Given javascript (Custom tag):
     { }
   `;
 
-Execute (JavaScript tag names can be customized):
+Execute (Tag names can be customized):
   let g:graphql_javascript_tags = ['GraphQL.Tag']
   source ../after/syntax/javascript/graphql.vim
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('GraphQL.Tag')
+
+Given javascript (Template literal):
+  const s = `text`;
+
+Execute (Untagged template literals aren't matched ):
+  AssertNotEqual 'graphqlTemplateString', SyntaxOf('`')
