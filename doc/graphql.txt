@@ -16,7 +16,7 @@ highlighting, and indentation.
 JAVASCRIPT                                                *graphql-javascript*
 
 When the vim-javascript (https://github.com/pangloss/vim-javascript) plugin is
-installed, GraphQL syntax support in ES6 tagged template literals is enabled.
+installed, GraphQL syntax support in ES2015 tagged templates is enabled.
 
                                                   *graphql-javascript-options*
 
@@ -25,14 +25,14 @@ installed, GraphQL syntax support in ES6 tagged template literals is enabled.
 
   Default: `["gql", "graphql", "Relay.QL"]`
 
-  This variable lists the JavaScript/ES6 template literal tag names that will
-  be recognized as containing GraphQL template strings.
+  This variable lists the ES2015 template tag names that will be recognized as
+  containing GraphQL template literal strings.
 
 
 TYPESCRIPT                                                *graphql-typescript*
 
 When the yats (https://github.com/HerringtonDarkholme/yats.vim) plugin is
-installed, GraphQL syntax support in ES6 tagged template literals is enabled.
+installed, GraphQL syntax support in ES2015 tagged templates is enabled.
 
 TypeScript support also uses |graphql-javascript-options| to customize the
 list of recognized template tag names.

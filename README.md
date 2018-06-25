@@ -33,9 +33,9 @@ filetype is automatically selected for file names ending in `.graphql`,
 
 When the [vim-javascript](https://github.com/pangloss/vim-javascript) or
 [yats](https://github.com/HerringtonDarkholme/yats.vim) plugins are installed,
-GraphQL syntax support in [ES6 tagged template literals][es6-tags] is enabled.
+GraphQL syntax support in [ES2015 template literals][templates] is enabled.
 
-[es6-tags]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates
+[templates]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates
 
 ```javascript
 const query = gql`
