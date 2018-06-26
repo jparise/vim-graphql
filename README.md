@@ -43,9 +43,10 @@ const query = gql`
     user(id: 5) {
       firstName
       lastName
+      ${field}
     }
   }
-`
+`;
 ```
 
 The list of recognized tag names is defined by the `g:graphql_javascript_tags`
