@@ -9,10 +9,9 @@ After:
 Given typescript (Template):
   const query = gql`
     {
-      user(id: 5) {
+      user(id: ${uid}) {
         firstName
         lastName
-        ${field}
       }
     }
   `;
@@ -20,7 +19,7 @@ Given typescript (Template):
 Execute (Syntax assertions):
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
   AssertEqual 'graphqlTemplateString', SyntaxOf('`')
-  AssertEqual 'typescriptTemplateSB', SyntaxOf('${field}')
+  AssertEqual 'typescriptTemplateSB', SyntaxOf('${uid}')
   AssertEqual 'graphqlName', SyntaxOf('user')
 
 Given typescript (Custom tag):

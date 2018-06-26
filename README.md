@@ -40,10 +40,9 @@ GraphQL syntax support in [ES2015 template literals][templates] is enabled.
 ```javascript
 const query = gql`
   {
-    user(id: 5) {
+    user(id: ${uid}) {
       firstName
       lastName
-      ${field}
     }
   }
 `;
