@@ -1,4 +1,5 @@
 doc/tags
 test/vader.vim/
 test/vim-javascript/
+test/vim-vimhelplint/
 test/yats.vim/
