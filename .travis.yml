@@ -1,4 +1,5 @@
 language: python
+python: 2.7
 before_install: |
   sudo apt-get -qq update
   sudo apt-get -y install vim
