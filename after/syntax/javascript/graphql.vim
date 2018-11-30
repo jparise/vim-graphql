@@ -12,6 +12,8 @@ let s:tags = '\%(' . join(g:graphql_javascript_tags, '\|') . '\)'
 exec 'syntax region graphqlTemplateString start=+' . s:tags . '\@20<=`+ skip=+\\`+ end=+`+ contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend'
 exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ nextgroup=graphqlTemplateString'
 
+exec 'syntax region graphqlTemplateString start=+`#\s\{0,4\}gql\>\s*$+ skip=+\\`+ end=+`+ contains=@GraphQLSyntax,j:qsTemplateExpression,jsSpecial extend'
+
 " Support expression interpolation ((${...})) inside template strings.
 syntax region graphqlTemplateExpression start=+${+ end=+}+ contained contains=jsTemplateExpression containedin=graphqlFold keepend
 
