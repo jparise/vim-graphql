@@ -14,3 +14,5 @@ setlocal iskeyword+=$,@-@
 setlocal softtabstop=2
 setlocal shiftwidth=2
 setlocal expandtab
+
+let b:undo_ftplugin = 'setlocal com< cms< fo< isk< sts< sw< et<'
