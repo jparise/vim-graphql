@@ -3,7 +3,7 @@
 all: lint test
 
 lint: test/vim-vimhelplint
-	vint -s after ftdetect ftplugin indent plugin syntax
+	vint -s after autoload ftdetect ftplugin indent syntax
 	vim -esN --cmd 'set rtp+=test/vim-vimhelplint' \
 		-c 'filetype plugin on' \
 		-c 'e doc/graphql.txt' \

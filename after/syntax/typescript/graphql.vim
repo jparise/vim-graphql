@@ -7,7 +7,7 @@ if exists('s:current_syntax')
   let b:current_syntax = s:current_syntax
 endif
 
-let s:tags = '\%(' . join(g:graphql_javascript_tags, '\|') . '\)'
+let s:tags = '\%(' . join(graphql#javascript_tags(), '\|') . '\)'
 
 exec 'syntax region graphqlTemplateString start=+' . s:tags . '\@20<=`+ skip=+\\`+ end=+`+ contains=@GraphQLSyntax,typescriptTemplateSubstitution extend'
 exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ nextgroup=graphqlTemplateString'
