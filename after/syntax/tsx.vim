@@ -5,8 +5,6 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let b:current_syntax = 'typescript.tsx'
-
 " GraphQL Support 
 if exists('b:current_syntax')
   let s:current_syntax = b:current_syntax
