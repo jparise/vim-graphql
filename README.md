@@ -58,6 +58,16 @@ const query = gql`
 The list of recognized tag names is defined by the `g:graphql_javascript_tags`
 variable, which defaults to `["gql", "graphql", "Relay.QL"]`.
 
+## TSX/JSX
+
+This plugin now supports syntax highlighting within `.tsx` / `.jsx` files.
+
+Should you have any problems with this I would suggest adding the following to your `init.vim`/`.vimrc` file:
+
+```vim
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+```
+
 ## Testing
 
 The test suite uses [Vader.vim][]. To run all of the tests from the command
@@ -67,7 +77,7 @@ line:
 
 [gql]: http://graphql.org/
 [spec]: https://facebook.github.io/graphql/October2016/
-[Pathogen]: https://github.com/tpope/vim-pathogen
-[Plug]: https://github.com/junegunn/vim-plug
-[Vundle]: https://github.com/gmarik/vundle
-[Vader.vim]: https://github.com/junegunn/vader.vim
+[pathogen]: https://github.com/tpope/vim-pathogen
+[plug]: https://github.com/junegunn/vim-plug
+[vundle]: https://github.com/gmarik/vundle
+[vader.vim]: https://github.com/junegunn/vader.vim
