@@ -1,10 +1,3 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim syntax file
-"
-" Language: TSX (TypeScript)
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " GraphQL Support 
 if exists('b:current_syntax')
   let s:current_syntax = b:current_syntax
