@@ -39,13 +39,19 @@ Execute (Boolean assertions):
 Given graphql (Strings):
   ""
   "Hello World"
-  """Triple-quoted
+
+  """Block
+  string"""
+
+  """Block
+  \"""
   string"""
 
 Execute (String assertions):
   AssertEqual 'graphqlString', SyntaxOf('""')
   AssertEqual 'graphqlString', SyntaxOf('"Hello World"')
-  AssertEqual 'graphqlString', SyntaxOf('"""Triple-quoted\nstring"""')
+  AssertEqual 'graphqlString', SyntaxOf('"""Block\nstring"""')
+  AssertEqual 'graphqlString', SyntaxOf('"""Block\n\\"""\nstring"""')
 
 # https://facebook.github.io/graphql/October2016/#sec-Language.Arguments
 Given graphql (Arguments):
