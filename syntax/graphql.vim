@@ -17,7 +17,7 @@ syn keyword graphqlBoolean  true false
 syn keyword graphqlNull     null
 syn match   graphqlNumber   "-\=\<\%(0\|[1-9]\d*\)\%(\.\d\+\)\=\%([eE][-+]\=\d\+\)\=\>" display
 syn region  graphqlString   start=+"+  skip=+\\\\\|\\"+  end=+"\|$+
-syn region  graphqlString   start=+"""+ end=+"""+
+syn region  graphqlString   start=+"""+ skip=+\\"""+ end=+"""+
 
 syn keyword graphqlKeyword on nextgroup=graphqlType skipwhite
 
