@@ -1,8 +1,8 @@
 # GraphQL for Vim
 
-This is a [Vim](http://www.vim.org/) plugin that provides [GraphQL][gql] file
+This is a [Vim](https://www.vim.org/) plugin that provides [GraphQL][gql] file
 detection, syntax highlighting, and indentation. It currently targets the
-[October 2016 draft specification][spec].
+[June 2018 specification][spec].
 
 ## Installation
 
@@ -76,7 +76,7 @@ line:
     $ make test
 
 [gql]: http://graphql.org/
-[spec]: https://facebook.github.io/graphql/October2016/
+[spec]: https://graphql.github.io/graphql-spec/June2018/
 [pathogen]: https://github.com/tpope/vim-pathogen
 [plug]: https://github.com/junegunn/vim-plug
 [vundle]: https://github.com/gmarik/vundle

@@ -1,18 +1,25 @@
-# Copyright (c) 2015, Facebook, Inc.
-# All rights reserved.
-#
-# This source code is licensed under the BSD-style license found in the
-# LICENSE file in the root directory of this source tree. An additional grant
-# of patent rights can be found in the PATENTS file in the same directory.
-
 schema {
   query: QueryType
   mutation: MutationType
 }
 
-type Foo implements Bar {
+"""
+This is a description
+of the `Foo` type.
+"""
+type Foo implements Bar & Baz & Two {
+  "Description of the `one` field."
   one: Type
-  two(argument: InputType!): Type
+  """
+  This is a description of the `two` field.
+  """
+  two(
+    """
+    This is a description of the `argument` argument.
+    """
+    argument: InputType!
+  ): Type
+  """This is a description of the `three` field."""
   three(argument: InputType, other: String): Int
   four(argument: String = "string"): String
   five(argument: [String] = ["string", "string"]): String
@@ -21,8 +28,16 @@ type Foo implements Bar {
 }
 
 type AnnotatedObject @onObject(arg: "value") {
-  annotatedField(arg: Type = "default" @onArg): Type @onField
+  annotatedField(arg: Type = "default" @onArgumentDefinition): Type @onField
 }
+
+type UndefinedType
+
+extend type Foo {
+  seven(argument: [String]): Type
+}
+
+extend type Foo @onType
 
 interface Bar {
   one: Type
@@ -30,22 +45,55 @@ interface Bar {
 }
 
 interface AnnotatedInterface @onInterface {
-  annotatedField(arg: Type @onArg): Type @onField
+  annotatedField(arg: Type @onArgumentDefinition): Type @onField
 }
 
-union Feed = Story | Article | Advert
+interface UndefinedInterface
+
+extend interface Bar implements Two {
+  two(argument: InputType!): Type
+}
+
+extend interface Bar @onInterface
+
+interface Baz implements Bar & Two {
+  one: Type
+  two(argument: InputType!): Type
+  four(argument: String = "string"): String
+}
+
+union Feed =
+  | Story
+  | Article
+  | Advert
 
 union AnnotatedUnion @onUnion = A | B
 
 union AnnotatedUnionTwo @onUnion = | A | B
 
+union UndefinedUnion
+
+extend union Feed = Photo | Video
+
+extend union Feed @onUnion
+
 scalar CustomScalar
 
 scalar AnnotatedScalar @onScalar
 
+extend scalar CustomScalar @onScalar
+
 enum Site {
+  """
+  This is a description of the `DESKTOP` value
+  """
   DESKTOP
+
+  """This is a description of the `MOBILE` value"""
   MOBILE
+
+  "This is a description of the `WEB` value"
+  WEB
 }
 
 enum AnnotatedEnum @onEnum {
@@ -53,24 +101,37 @@ enum AnnotatedEnum @onEnum {
   OTHER_VALUE
 }
 
+enum UndefinedEnum
+
+extend enum Site {
+  VR
+}
+
+extend enum Site @onEnum
+
 input InputType {
   key: String!
   answer: Int = 42
 }
 
-input AnnotatedInput @onInputObjectType {
-  annotatedField: Type @onField
+input AnnotatedInput @onInputObject {
+  annotatedField: Type @onInputFieldDefinition
 }
 
-extend type Foo {
-  seven(argument: [String]): Type
+input UndefinedInput
+
+extend input InputType {
+  other: Float = 1.23e4 @onInputFieldDefinition
 }
 
-extend type Foo @onType {}
+extend input InputType @onInputObject
 
-type NoFields {}
-
-directive @skip(if: Boolean!) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+"""
+This is a description of the `@skip` directive
+"""
+directive @skip(
+  if: Boolean! @onArgumentDefinition
+) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
 
 directive @include(if: Boolean!)
   on FIELD
@@ -81,3 +142,13 @@ directive @include2(if: Boolean!) on
   | FIELD
   | FRAGMENT_SPREAD
   | INLINE_FRAGMENT
+
+directive @myRepeatableDir(name: String!) repeatable on
+  | OBJECT
+  | INTERFACE
+
+extend schema @onSchema
+
+extend schema @onSchema {
+  subscription: SubscriptionType
+}
