@@ -13,6 +13,7 @@ syn match graphqlComment    "#.*$" contains=@Spell
 syn match graphqlOperator   "=" display
 syn match graphqlOperator   "!" display
 syn match graphqlOperator   "|" display
+syn match graphqlOperator   "&" display
 syn match graphqlOperator   "\M..." display
 
 syn keyword graphqlBoolean  true false

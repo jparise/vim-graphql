@@ -135,3 +135,19 @@ Execute (Directive assertions):
   AssertEqual 'graphqlDirectiveLocation', SyntaxOf('FRAGMENT_SPREAD')
   AssertEqual 'graphqlDirectiveLocation', SyntaxOf('INLINE_FRAGMENT')
   AssertEqual 'graphqlOperator', SyntaxOf('|')
+
+# https://graphql.github.io/graphql-spec/June2018/#sec-Objects
+Given graphql (Objects):
+  type Type implements Interface1 & Interface2 {
+    name: Thing
+  }
+
+Execute (Object assertions):
+  AssertEqual 'graphqlStructure', SyntaxOf('type')
+  AssertEqual 'graphqlType', SyntaxOf('Type')
+  AssertEqual 'graphqlStructure', SyntaxOf('implements')
+  AssertEqual 'graphqlType', SyntaxOf('Interface1')
+  AssertEqual 'graphqlOperator', SyntaxOf('&')
+  AssertEqual 'graphqlType', SyntaxOf('Interface2')
+  AssertEqual 'graphqlName', SyntaxOf('name')
+  AssertEqual 'graphqlType', SyntaxOf('Thing')
