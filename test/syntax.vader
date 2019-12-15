@@ -119,3 +119,19 @@ Execute (Schema assertions):
   AssertEqual 'graphqlStructure', SyntaxOf('schema')
   AssertEqual 'graphqlName', SyntaxOf('query')
   AssertEqual 'graphqlType', SyntaxOf('QueryType')
+
+# https://graphql.github.io/graphql-spec/June2018/#sec-Type-System.Directives
+Given graphql (Directives):
+  directive @include(if: Boolean!)
+    on FIELD
+      | FRAGMENT_SPREAD
+      | INLINE_FRAGMENT
+
+Execute (Directive assertions):
+  AssertEqual 'graphqlStructure', SyntaxOf('directive')
+  AssertEqual 'graphqlDirective', SyntaxOf('@include')
+  AssertEqual 'graphqlKeyword', SyntaxOf('on')
+  AssertEqual 'graphqlDirectiveLocation', SyntaxOf('FIELD')
+  AssertEqual 'graphqlDirectiveLocation', SyntaxOf('FRAGMENT_SPREAD')
+  AssertEqual 'graphqlDirectiveLocation', SyntaxOf('INLINE_FRAGMENT')
+  AssertEqual 'graphqlOperator', SyntaxOf('|')
