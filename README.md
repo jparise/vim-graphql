@@ -6,20 +6,19 @@ detection, syntax highlighting, and indentation. It currently targets the
 
 ## Installation
 
-### Using [Plug][]
+### Using [vim-plug](https://github.com/junegunn/vim-plug)
 
 1. Add `Plug 'jparise/vim-graphql'` to `~/.vimrc`
 2. `vim +PluginInstall +qall`
 
-### Using [Vundle][]
+### Using Vim Packages
 
-1. Add `Plugin 'jparise/vim-graphql'` to `~/.vimrc`
-2. `vim +PluginInstall +qall`
-
-### Using [Pathogen][]
-
-1. `cd ~/.vim/bundle`
-2. `git clone https://github.com/jparise/vim-graphql.git`
+```sh
+mkdir -p ~/.vim/pack/jparise/start
+cd ~/.vim/pack/jparise/start
+git clone https://github.com/jparise/vim-graphql.git graphql
+vim -u NONE -c "helptags graphql/doc" -c q
+```
 
 ## Syntax Highlighting
 
@@ -81,7 +80,4 @@ line:
 
 [gql]: http://graphql.org/
 [spec]: https://graphql.github.io/graphql-spec/June2018/
-[pathogen]: https://github.com/tpope/vim-pathogen
-[plug]: https://github.com/junegunn/vim-plug
-[vundle]: https://github.com/gmarik/vundle
 [vader.vim]: https://github.com/junegunn/vader.vim
