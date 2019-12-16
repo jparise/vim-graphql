@@ -19,10 +19,13 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
-      - name: Install dependencies
+      - name: Install vim (8.2)
+        run: |
+          sudo add-apt-repository ppa:jonathonf/vim
+          sudo apt install vim=2:8.2.0012-0york0~18.04
+      - name: Run lint
         run: |
           pip install vim-vint==0.3.21
-      - name: Run lint
-        run: make lint
+          make lint
       - name: Run tests
         run: make test
