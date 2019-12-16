@@ -15,14 +15,30 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.8
-      - name: Install dependencies
+      - name: Dependencies
         run: |
-          pip install vim-vint==0.3.21
-      - name: Run lint
-        run: make lint
-      - name: Run tests
-        run: make test
+          git clone --depth 1 https://github.com/junegunn/vader.vim.git .bundle/vader.vim
+          git clone --depth 1 https://github.com/machakann/vim-vimhelplint.git .bundle/vim-vimhelplint
+          git clone --depth 1 https://github.com/pangloss/vim-javascript.git .bundle/vim-javascript
+          git clone --depth 1 https://github.com/HerringtonDarkholme/yats.vim.git .bundle/yats.vim
+      - name: Lint (vint)
+        uses: docker://python:3.8-slim
+        with:
+          args: /bin/sh -c "pip install -q vim-vint==0.3.21 && vint -s after autoload ftdetect ftplugin indent syntax"
+      - name: Test
+        uses: docker://thinca/vim:v8.2.0
+        with:
+          args: --version
+      # - name: Lint (help)
+      #   uses: docker://thinca/vim:v8.2.0
+      #   with:
+      #     args: /bin/sh -c "vim -esN --not-a-term \
+      #       --cmd 'set rtp+=.bundle/vim-vimhelplint' \
+      #       -c 'filetype plugin on' \
+      #       -c 'e doc/graphql.txt' \
+      #       -c 'verb VimhelpLintEcho' \
+      #       -c q"
+      # - name: Test (vader)
+      #   uses: docker://thinca/vim:v8.2.0
+      #   with:
+      #     args: /bin/sh -c "vim -EsNu test/vimrc --not-a-term -c 'Vader! test/*'"
