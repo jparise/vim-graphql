@@ -1,0 +1,17 @@
+Before:
+  Save &runtimepath
+  filetype off
+  set runtimepath+=../.bundle/vim-javascript/
+  filetype plugin indent on
+  syntax enable
+
+After:
+  filetype off
+  Restore &runtimepath
+  filetype plugin indent on
+  syntax enable
+
+Execute (Expected syntax groups):
+  Assert graphql#has_syntax_group('jsTemplateExpression')
+
+Include: default.vader
