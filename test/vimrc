@@ -1,6 +1,5 @@
 filetype off
 set runtimepath+=../.bundle/vader.vim/
-set runtimepath+=../.bundle/vim-javascript/
 set runtimepath+=../.bundle/yats.vim/
 set runtimepath+=../
 filetype plugin indent on

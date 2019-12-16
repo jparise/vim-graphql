@@ -15,8 +15,10 @@ highlighting, and indentation.
 
 JAVASCRIPT                                                *graphql-javascript*
 
-When the vim-javascript (https://github.com/pangloss/vim-javascript) plugin is
-installed, GraphQL syntax support in ES2015 tagged templates is enabled.
+GraphQL syntax support in ES2015 template literals is provided. It works "out
+of the box" with Vim 8.2's JavaScript support. The extended syntax provided by
+the vim-javascript (https://github.com/pangloss/vim-javascript) plugin is also
+supported.
 
                                                   *graphql-javascript-options*
 

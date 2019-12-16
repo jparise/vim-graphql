@@ -38,11 +38,15 @@ au BufNewFile,BufRead *.prisma setfiletype graphql
 
 ## JavaScript / TypeScript Support
 
-When the [vim-javascript](https://github.com/pangloss/vim-javascript) or
-[yats](https://github.com/HerringtonDarkholme/yats.vim) plugins are installed,
-GraphQL syntax support in [ES2015 template literals][templates] is enabled.
+GraphQL syntax support in [ES2015 template literals][templates] is provided.
+It works "out of the box" with Vim 8.2's JavaScript support. The extended
+syntax support proved by the [vim-javascript][] plugin is also supported.
+
+TypeScript support is also available when the [yats][] plugin is installed.
 
 [templates]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates
+[vim-javascript]: https://github.com/pangloss/vim-javascript
+[yats]: https://github.com/HerringtonDarkholme/yats.vim
 
 ```javascript
 const query = gql`

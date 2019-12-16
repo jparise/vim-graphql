@@ -11,7 +11,7 @@ lint: .bundle/vim-vimhelplint
 		-c q
 
 test: .bundle/vader.vim .bundle/vim-javascript .bundle/yats.vim
-	cd test && vim -EsNu vimrc --not-a-term -c 'Vader! *'
+	cd test && vim -EsNu vimrc --not-a-term -c 'Vader! * */*'
 
 .bundle/vader.vim:
 	git clone --depth 1 https://github.com/junegunn/vader.vim.git .bundle/vader.vim
