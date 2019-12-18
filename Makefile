@@ -10,7 +10,7 @@ lint: .bundle/vim-vimhelplint
 		-c 'verb VimhelpLintEcho' \
 		-c q
 
-test: .bundle/vader.vim .bundle/vim-javascript .bundle/yats.vim
+test: .bundle/vader.vim .bundle/vim-javascript
 	cd test && vim -EsNu vimrc --not-a-term -c 'Vader! * */*'
 
 .bundle/vader.vim:
@@ -21,6 +21,3 @@ test: .bundle/vader.vim .bundle/vim-javascript .bundle/yats.vim
 
 .bundle/vim-vimhelplint:
 	git clone --depth 1 https://github.com/machakann/vim-vimhelplint.git .bundle/vim-vimhelplint
-
-.bundle/yats.vim:
-	git clone --depth 1 https://github.com/HerringtonDarkholme/yats.vim.git .bundle/yats.vim
