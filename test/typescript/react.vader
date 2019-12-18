@@ -1,0 +1,22 @@
+Before:
+  source ../after/syntax/typescriptreact/graphql.vim
+
+Execute (Expected syntax groups):
+  Assert graphql#has_syntax_group('graphqlTemplateExpression')
+  Assert graphql#has_syntax_group('graphqlTemplateString')
+
+Given typescriptreact (Template):
+  const query = gql`{}`;
+
+Execute (Syntax assertions):
+  AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
+  AssertEqual 'graphqlTemplateString', SyntaxOf('`')
+  AssertEqual 'graphqlBraces', SyntaxOf('{}')
+
+Given typescript.tsx (Template):
+  const query = gql`{}`;
+
+Execute (Syntax assertions):
+  AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
+  AssertEqual 'graphqlTemplateString', SyntaxOf('`')
+  AssertEqual 'graphqlBraces', SyntaxOf('{}')

@@ -63,15 +63,9 @@ const query = gql`
 The list of recognized tag names is defined by the `g:graphql_javascript_tags`
 variable, which defaults to `["gql", "graphql", "Relay.QL"]`.
 
-## TSX/JSX
-
-This plugin now supports syntax highlighting within `.tsx` / `.jsx` files.
-
-Should you have any problems with this I would suggest adding the following to your `init.vim`/`.vimrc` file:
-
-```vim
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-```
+Syntax highlighting within `.jsx` / `.tsx` files is also supported. These
+filetypes can be "compound" (`javascript.jsx`) or use the "react" variant
+(`javascriptreact`).
 
 ## Testing
 
