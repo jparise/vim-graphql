@@ -72,7 +72,9 @@ filetypes can be "compound" (`javascript.jsx`) or use the "react" variant
 The test suite uses [Vader.vim][]. To run all of the tests from the command
 line:
 
-    $ make test
+```sh
+make test
+```
 
 [gql]: http://graphql.org/
 [spec]: https://graphql.github.io/graphql-spec/June2018/
