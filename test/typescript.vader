@@ -6,6 +6,9 @@ Before:
 After:
   Restore
 
+Execute (Expected syntax groups):
+  Assert graphql#has_syntax_group('typescriptTemplate')
+
 Given typescript (Template):
   const query = gql`
     {
