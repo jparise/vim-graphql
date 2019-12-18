@@ -23,7 +23,7 @@ if graphql#has_syntax_group('jsTemplateExpression')
   syn cluster graphqlTaggedTemplate add=graphqlTemplateString
 elseif graphql#has_syntax_group('javaScriptStringT')
   " runtime/syntax/javascript.vim
-  exec 'syntax region graphqlTemplateString start=+' . s:tags . '\@20<=`+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,javaScriptSpecial,javaScriptEmbed extend'
+  exec 'syntax region graphqlTemplateString start=+' . s:tags . '\@20<=`+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,javaScriptSpecial,javaScriptEmbed,@htmlPreproc extend'
   exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ nextgroup=graphqlTemplateString'
   syntax region graphqlTemplateExpression start=+${+ end=+}+ contained contains=@javaScriptEmbededExpr containedin=graphqlFold keepend
 
@@ -31,6 +31,7 @@ elseif graphql#has_syntax_group('javaScriptStringT')
   hi def link graphqlTaggedTemplate javaScriptEmbed
   hi def link graphqlTemplateExpression javaScriptEmbed
 
+  syn cluster htmlJavaScript add=graphqlTaggedTemplate
   syn cluster javaScriptEmbededExpr add=graphqlTaggedTemplate
   syn cluster graphqlTaggedTemplate add=graphqlTemplateString
 endif
