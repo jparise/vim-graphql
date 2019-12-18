@@ -1,0 +1,34 @@
+Before:
+  Save &runtimepath
+  filetype off
+  set runtimepath+=../.bundle/vim-javascript/
+  filetype plugin indent on
+  syntax enable
+
+  source ../after/syntax/vue/graphql.vim
+
+After:
+  filetype off
+  Restore &runtimepath
+  filetype plugin indent on
+  syntax enable
+
+Execute (Expected syntax groups):
+  Assert graphql#has_syntax_group('graphqlTemplateExpression')
+  Assert graphql#has_syntax_group('graphqlTemplateString')
+
+Given vue (Template):
+  <script>
+  export default {
+    apollo: {
+      hello: gql`query {
+        hello
+      }`,
+    },
+  }
+  </script>
+
+Execute (Syntax assertions):
+  AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
+  AssertEqual 'graphqlTemplateString', SyntaxOf('`')
+  AssertEqual 'graphqlStructure', SyntaxOf('query')
