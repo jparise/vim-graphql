@@ -67,6 +67,8 @@ Syntax highlighting within `.jsx` / `.tsx` files is also supported. These
 filetypes can be "compound" (`javascript.jsx`) or use the "react" variant
 (`javascriptreact`).
 
+Syntax highlighting is also available within Vue templates.
+
 ## Testing
 
 The test suite uses [Vader.vim][]. To run all of the tests from the command
