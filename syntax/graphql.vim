@@ -36,7 +36,6 @@ syn match graphqlDirective  "\<@\h\w*\>"   display
 syn match graphqlVariable   "\<\$\h\w*\>"  display
 syn match graphqlName       "\<\h\w*\>"    display
 syn match graphqlType       "\<_*\u\w*\>"  display
-syn match graphqlConstant   "\<[_A-Z][_A-Z0-9]*\>" display
 
 " https://graphql.github.io/graphql-spec/June2018/#ExecutableDirectiveLocation
 syn keyword graphqlDirectiveLocation QUERY MUTATION SUBSCRIPTION FIELD
@@ -63,7 +62,6 @@ hi def link graphqlNull             Keyword
 hi def link graphqlNumber           Number
 hi def link graphqlString           String
 
-hi def link graphqlConstant         Constant
 hi def link graphqlDirective        PreProc
 hi def link graphqlDirectiveLocation Special
 hi def link graphqlName             Identifier
