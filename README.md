@@ -1,8 +1,9 @@
 # GraphQL for Vim
 
-This is a [Vim](https://www.vim.org/) plugin that provides [GraphQL][gql] file
+This is a Vim plugin that provides [GraphQL](https://graphql.org/) file
 detection, syntax highlighting, and indentation. It currently targets the
-[June 2018 specification][spec].
+[June 2018 edition](https://graphql.github.io/graphql-spec/June2018/) of the
+GraphQL specification.
 
 ## Installation
 
@@ -67,12 +68,13 @@ Syntax highlighting within `.jsx` / `.tsx` files is also supported. These
 filetypes can be "compound" (`javascript.jsx`) or use the "react" variant
 (`javascriptreact`).
 
-Syntax highlighting is also available within Vue templates.
+Syntax highlighting is also available within [Vue](https://vuejs.org/)
+templates.
 
 ## Testing
 
-The test suite uses [Vader.vim][]. To run all of the tests from the command
-line:
+The test suite uses [Vader.vim](https://github.com/junegunn/vader.vim). To run
+all of the tests from the command line:
 
 ```sh
 make test
@@ -82,7 +84,3 @@ make test
 
 This code is released under the terms of the MIT license. See `LICENSE` for
 details.
-
-[gql]: http://graphql.org/
-[spec]: https://graphql.github.io/graphql-spec/June2018/
-[vader.vim]: https://github.com/junegunn/vader.vim
