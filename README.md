@@ -78,6 +78,11 @@ line:
 make test
 ```
 
+## License
+
+This code is released under the terms of the MIT license. See `LICENSE` for
+details.
+
 [gql]: http://graphql.org/
 [spec]: https://graphql.github.io/graphql-spec/June2018/
 [vader.vim]: https://github.com/junegunn/vader.vim
