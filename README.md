@@ -1,9 +1,9 @@
 # GraphQL for Vim
 
-This is a Vim plugin that provides [GraphQL](https://graphql.org/) file
-detection, syntax highlighting, and indentation. It currently targets the
-[June 2018 edition](https://graphql.github.io/graphql-spec/June2018/) of the
-GraphQL specification.
+This Vim plugin provides [GraphQL](https://graphql.org/) file detection,
+syntax highlighting, and indentation. It currently targets the [June 2018
+edition](https://graphql.github.io/graphql-spec/June2018/) of the GraphQL
+specification.
 
 ## Installation
 
@@ -24,11 +24,12 @@ vim -u NONE -c "helptags graphql/doc" -c q
 ## Syntax Highlighting
 
 Complete syntax highlighting is enable for the `graphql` [filetype][]. This
-filetype is automatically selected for file names ending in `.graphql`,
+filetype is automatically selected for filenames ending in `.graphql`,
 `.graphqls`, and `.gql`.
 
-If you would like to enable syntax support for custom extensions, for example
-`.prisma`, create a new file named `~/.vim/ftdetect/prisma.vim` containing:
+If you would like to enable automatic syntax support for more types of files
+(for example `*.prisma`), create a new file named `~/.vim/ftdetect/prisma.vim`
+containing:
 
 ```vim
 au BufNewFile,BufRead *.prisma setfiletype graphql
