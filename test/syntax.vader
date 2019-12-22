@@ -65,7 +65,7 @@ Execute (Argument assertions):
   AssertEqual 'graphqlName', SyntaxOf('queryName')
   AssertEqual 'graphqlVariable', SyntaxOf('$site')
   AssertEqual 'graphqlType', SyntaxOf('Site')
-  AssertEqual 'graphqlConstant', SyntaxOf('MOBILE')
+  AssertEqual 'graphqlType', SyntaxOf('MOBILE')
   AssertEqual 'graphqlName', SyntaxOf('id')
   AssertEqual 'graphqlNumber', SyntaxOf('4')
   AssertEqual 'graphqlName', SyntaxOf('size')
