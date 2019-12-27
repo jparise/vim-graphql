@@ -27,9 +27,9 @@ Complete syntax highlighting is enable for the `graphql` [filetype][]. This
 filetype is automatically selected for filenames ending in `.graphql`,
 `.graphqls`, and `.gql`.
 
-If you would like to enable automatic syntax support for more types of files
-(for example `*.prisma`), create a new file named `~/.vim/ftdetect/prisma.vim`
-containing:
+If you would like to enable automatic syntax support for more file extensions
+(e.g., `*.prisma`), create a file named `~/.vim/after/ftdetect/graphql.vim`
+containing autocommand lines like:
 
 ```vim
 au BufNewFile,BufRead *.prisma setfiletype graphql
