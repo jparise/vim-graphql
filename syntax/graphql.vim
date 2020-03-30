@@ -22,7 +22,7 @@
 " Maintainer: Jon Parise <jon@indelible.org>
 
 if exists('b:current_syntax')
-    finish
+  finish
 endif
 
 syn case match
