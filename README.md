@@ -66,8 +66,8 @@ The list of recognized tag names is defined by the `g:graphql_javascript_tags`
 variable, which defaults to `["gql", "graphql", "Relay.QL"]`.
 
 Syntax highlighting within `.jsx` / `.tsx` files is also supported. These
-filetypes can be "compound" (`javascript.jsx`) or use the "react" variant
-(`javascriptreact`).
+filetypes can be "compound" (`javascript.jsx` and `typescript.tsx`) or use the
+"react" variants (`javascriptreact` and `typescriptreact`).
 
 Syntax highlighting is also available within [Vue](https://vuejs.org/)
 templates.
