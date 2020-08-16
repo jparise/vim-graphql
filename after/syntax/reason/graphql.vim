@@ -29,5 +29,5 @@ syn include @GraphQLSyntax syntax/graphql.vim
 if exists('s:current_syntax')
   let b:current_syntax = s:current_syntax
 endif
-syntax region graphqlExtensionPoint start=/\[%graphql\s*\n\s*{|/ end=/|}\s*\n\s*\]/ contains=@GraphQLSyntax keepend
-
+syntax region graphqlExtensionPoint start=/\[%graphql\_s*{|/ end=/|}\_s*\]/ contains=@GraphQLSyntax,reasonTemplateExpression keepend
+hi def link graphqlExtensionPoint reasonTaggedTemplate

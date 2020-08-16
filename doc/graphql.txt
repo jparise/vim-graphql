@@ -41,5 +41,11 @@ plugin. For older versions, you can install yats directly.
 TypeScript syntax support also uses |graphql-javascript-options| to customize
 the list of recognized template tag names.
 
+REASONML                                                    *graphql-reasonml*
+
+GraphQL syntax support inside of ReasonML template strings using graphql-ppx
+is available when vim-reasonml (https://github.com/jordwalke/vim-reasonml) is
+also installed.
+
 ------------------------------------------------------------------------------
 vim:tw=78:ft=help:norl:

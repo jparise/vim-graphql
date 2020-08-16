@@ -1,0 +1,20 @@
+Before:
+  source ../after/syntax/reason/graphql.vim
+
+Execute (Expected syntax groups):
+  Assert graphql#has_syntax_group('graphqlExtensionPoint')
+
+Given reason (Template):
+  [%graphql {|
+    query UserQuery {
+      user {
+        id
+        name
+      }
+    }
+  |}];
+
+Execute (Syntax assertions):
+  " AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
+  " AssertEqual 'graphqlTemplateString', SyntaxOf('`')
+  AssertEqual 'graphqlName', SyntaxOf('user')
