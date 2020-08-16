@@ -72,6 +72,26 @@ filetypes can be "compound" (`javascript.jsx` and `typescript.tsx`) or use the
 Syntax highlighting is also available within [Vue](https://vuejs.org/)
 templates.
 
+## ReasonML Support
+
+GraphQL syntax support inside of [ReasonML](https://reasonml.org/) template
+strings using [graphql-ppx][] is available when [vim-reasonml][] is also
+installed.
+
+```reason
+[%graphql {|
+  query UserQuery {
+    user {
+      id
+      name
+    }
+  }
+|}];
+```
+
+[graphql-ppx]: https://github.com/reasonml-community/graphql-ppx
+[vim-reasonml]: https://github.com/jordwalke/vim-reasonml
+
 ## Testing
 
 The test suite uses [Vader.vim](https://github.com/junegunn/vader.vim). To run
