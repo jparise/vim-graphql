@@ -21,18 +21,19 @@
 " Language: GraphQL
 " Maintainer: Jon Parise <jon@indelible.org>
 
-if exists('b:did_indent')
-  finish
+" Set our local options if indentation hasn't already been set up.
+" This generally means we've been detected as the primary filetype.
+if !exists('b:did_indent')
+  setlocal autoindent
+  setlocal nocindent
+  setlocal nolisp
+  setlocal nosmartindent
+
+  setlocal indentexpr=GetGraphQLIndent()
+  setlocal indentkeys=0{,0},0),0[,0],0#,!^F,o,O
+
+  let b:did_indent = 1
 endif
-let b:did_indent = 1
-
-setlocal autoindent
-setlocal nocindent
-setlocal nolisp
-setlocal nosmartindent
-
-setlocal indentexpr=GetGraphQLIndent()
-setlocal indentkeys=0{,0},0),0[,0],0#,!^F,o,O
 
 " If our indentation function already exists, we have nothing more to do.
 if exists('*GetGraphQLIndent')
@@ -44,7 +45,7 @@ set cpoptions&vim
 
 " Check if the character at lnum:col is inside a string.
 function s:InString(lnum, col)
-  return synIDattr(synID(a:lnum, a:col, 1), 'name') is# 'graphqlString'
+  return synIDattr(synID(a:lnum, a:col, 1), 'name') ==# 'graphqlString'
 endfunction
 
 function GetGraphQLIndent()

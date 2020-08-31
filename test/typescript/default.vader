@@ -1,6 +1,8 @@
 Before:
   Save g:graphql_javascript_tags
 
+  setlocal shiftwidth=2
+  source ../after/indent/typescript.vim
   source ../after/syntax/typescript/graphql.vim
 
 After:
@@ -24,6 +26,24 @@ Execute (Syntax assertions):
   AssertEqual 'graphqlTemplateString', SyntaxOf('`')
   AssertEqual 'typescriptTemplateSB', SyntaxOf('${uid}')
   AssertEqual 'graphqlName', SyntaxOf('user')
+
+Execute (Indent assertions):
+  Assert exists('*GetGraphQLIndent')
+  Assert exists('*GetTypescriptIndent')
+  Assert exists('*GetTypescriptGraphQLIndent')
+
+Do (re-indent buffer):
+  gg=G
+
+Expect (properly indented):
+  const query = gql`
+  {
+    user(id: ${uid}) {
+      firstName
+      lastName
+    }
+  }
+  `;
 
 Given typescript (Custom tag):
   const query = GraphQL.Tag`{}`;

@@ -5,6 +5,8 @@ Before:
   filetype plugin indent on
   syntax enable
 
+  setlocal shiftwidth=2
+  source ../after/indent/javascript.vim
   source ../after/syntax/vue/graphql.vim
 
 After:
@@ -22,7 +24,8 @@ Given vue (Template):
   export default {
     apollo: {
       hello: gql`query {
-        hello
+        firstName
+        lastName
       }`,
     },
   }
@@ -32,3 +35,23 @@ Execute (Syntax assertions):
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
   AssertEqual 'graphqlTemplateString', SyntaxOf('`')
   AssertEqual 'graphqlStructure', SyntaxOf('query')
+
+Execute (Indent assertions):
+  Assert exists('*GetGraphQLIndent')
+  Assert exists('*GetJavascriptIndent')
+  Assert exists('*GetJavascriptGraphQLIndent')
+
+Do (re-indent buffer):
+  gg=G
+
+Expect (propertly indented):
+  <script>
+  export default {
+    apollo: {
+      hello: gql`query {
+        firstName
+        lastName
+      }`,
+    },
+  }
+  </script>
