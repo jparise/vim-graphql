@@ -1,4 +1,5 @@
 Before:
+  source ../after/indent/javascript.vim
   source ../after/syntax/javascriptreact/graphql.vim
 
 Execute (Expected syntax groups):
@@ -20,3 +21,8 @@ Execute (Syntax assertions):
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
   AssertEqual 'graphqlTemplateString', SyntaxOf('`')
   AssertEqual 'graphqlBraces', SyntaxOf('{}')
+
+Execute (Indent assertions):
+  Assert exists('*GetGraphQLIndent')
+  Assert exists('*GetJavascriptIndent')
+  Assert exists('*GetJavascriptGraphQLIndent')

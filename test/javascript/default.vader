@@ -1,6 +1,8 @@
 Before:
   Save g:graphql_javascript_tags
 
+  setlocal shiftwidth=2
+  source ../after/indent/javascript.vim
   source ../after/syntax/javascript/graphql.vim
 
 After:
@@ -21,6 +23,24 @@ Execute (Syntax assertions):
   AssertEqual 'graphqlTemplateString', SyntaxOf('`')
   AssertEqual 'graphqlTemplateExpression', SyntaxOf('${uid}')
   AssertEqual 'graphqlName', SyntaxOf('user')
+
+Execute (Indent assertions):
+  Assert exists('*GetGraphQLIndent')
+  Assert exists('*GetJavascriptIndent')
+  Assert exists('*GetJavascriptGraphQLIndent')
+
+Do (re-indent buffer):
+  gg=G
+
+Expect (propertly indented):
+  const query = gql`
+    {
+      user(id: ${uid}) {
+        firstName
+        lastName
+      }
+    }
+  `;
 
 Given javascript (Custom tag):
   const query = GraphQL.Tag`{}`;
