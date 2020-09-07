@@ -30,4 +30,4 @@ if exists('s:current_syntax')
   let b:current_syntax = s:current_syntax
 endif
 
-syntax region graphqlExtensionPoint start=/\[%graphql\s*\n\s*{|/ end=/|}\s*\n\s*\]/ contains=@GraphQLSyntax keepend
+syntax region graphqlMultilineString start=/\[%graphql\s*\n\s*{|/ end=/|}\s*\n\s*\]/ contains=@GraphQLSyntax keepend
