@@ -10,7 +10,7 @@ lint: .bundle/vim-vimhelplint
 		-c 'verb VimhelpLintEcho' \
 		-c q
 
-test: .bundle/vader.vim .bundle/vim-javascript .bundle/vim-reasonml
+test: .bundle/vader.vim .bundle/vim-javascript 
 	cd test && vim -EsNu vimrc --not-a-term -c 'Vader! * */*'
 
 .bundle/vader.vim:
@@ -18,9 +18,6 @@ test: .bundle/vader.vim .bundle/vim-javascript .bundle/vim-reasonml
 
 .bundle/vim-javascript:
 	git clone --depth 1 https://github.com/pangloss/vim-javascript.git .bundle/vim-javascript
-
-.bundle/vim-reasonml:
-	git clone --depth 1 https://github.com/jordwalke/vim-reasonml .bundle/vim-reasonml
 
 .bundle/vim-vimhelplint:
 	git clone --depth 1 https://github.com/machakann/vim-vimhelplint.git .bundle/vim-vimhelplint

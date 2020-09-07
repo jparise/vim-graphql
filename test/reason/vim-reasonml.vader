@@ -1,9 +1,6 @@
 Before:
   source ../after/syntax/reason/graphql.vim
 
-Execute (Expected syntax groups):
-  Assert graphql#has_syntax_group('graphqlMultilineString')
-
 Given reason (Template):
   [%graphql {|
     query UserQuery {
