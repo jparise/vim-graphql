@@ -1,9 +1,5 @@
 Before:
-  set filetype=reason
   source ../after/syntax/reason/graphql.vim
-
-Execute (Expected syntax groups):
-  Assert graphql#has_syntax_group('reasonMultilineString')
 
 Given reason (Template):
   [%graphql {|
