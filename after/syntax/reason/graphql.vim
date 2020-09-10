@@ -30,4 +30,4 @@ if exists('s:current_syntax')
   let b:current_syntax = s:current_syntax
 endif
 
-syntax region graphqlExtensionPoint start=/\[%graphql\_s*{|/ end=/|}\_s*]/ contains=@GraphQLSyntax keepend
+syntax region graphqlExtensionPoint matchgroup=Noise start=+\[%graphql\_s*{|+lc=10 end=+|}\_s*]+he=s+1 contains=@GraphQLSyntax keepend
