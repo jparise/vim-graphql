@@ -61,3 +61,22 @@ Expect (new comment is indented at the existing level):
   query {
     field
     # comment
+
+Given graphql:
+  query {
+    # Comment {
+    field("string {") {
+      id
+    }
+  }
+
+Do (reindent):
+  gg=G
+
+Expect (brackets in comments and strings are ignored):
+  query {
+    # Comment {
+    field("string {") {
+      id
+    }
+  }
