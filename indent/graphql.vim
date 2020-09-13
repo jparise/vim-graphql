@@ -59,17 +59,17 @@ function GetGraphQLIndent()
   let l:line = getline(v:lnum)
 
   " If this line contains just a closing bracket, find its matching opening
-  " bracket and indent the closing backet to match.
+  " bracket and indent the closing bracket to match.
   let l:col = matchend(l:line, '^\s*[]})]')
   if l:col > 0 && !s:InString(v:lnum, l:col)
-    let l:bracket = l:line[l:col - 1]
     call cursor(v:lnum, l:col)
 
-    if l:bracket is# '}'
+    let l:bracket = l:line[l:col - 1]
+    if l:bracket ==# '}'
       let l:matched = searchpair('{', '', '}', 'bW')
-    elseif l:bracket is# ']'
+    elseif l:bracket ==# ']'
       let l:matched = searchpair('\[', '', '\]', 'bW')
-    elseif l:bracket is# ')'
+    elseif l:bracket ==# ')'
       let l:matched = searchpair('(', '', ')', 'bW')
     else
       let l:matched = -1
