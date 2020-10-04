@@ -23,7 +23,6 @@ Given typescript (Template):
 
 Execute (Syntax assertions):
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
-  AssertEqual 'graphqlTemplateString', SyntaxOf('`')
   AssertEqual 'typescriptTemplateSB', SyntaxOf('${uid}')
   AssertEqual 'graphqlName', SyntaxOf('user')
 

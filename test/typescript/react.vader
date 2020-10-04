@@ -10,7 +10,6 @@ Given typescriptreact (Template):
 
 Execute (Syntax assertions):
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
-  AssertEqual 'graphqlTemplateString', SyntaxOf('`')
   AssertEqual 'graphqlBraces', SyntaxOf('{}')
 
 Given typescript.tsx (Template):
@@ -18,5 +17,4 @@ Given typescript.tsx (Template):
 
 Execute (Syntax assertions):
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
-  AssertEqual 'graphqlTemplateString', SyntaxOf('`')
   AssertEqual 'graphqlBraces', SyntaxOf('{}')
