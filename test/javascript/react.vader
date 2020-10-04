@@ -22,5 +22,4 @@ Execute (Syntax assertions):
 
 Execute (Indent assertions):
   Assert exists('*GetGraphQLIndent')
-  Assert exists('*GetJavascriptIndent')
   Assert exists('*GetJavascriptGraphQLIndent')
