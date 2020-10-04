@@ -33,7 +33,6 @@ Given vue (Template):
 
 Execute (Syntax assertions):
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
-  AssertEqual 'graphqlTemplateString', SyntaxOf('`')
   AssertEqual 'graphqlStructure', SyntaxOf('query')
 
 Execute (Indent assertions):
