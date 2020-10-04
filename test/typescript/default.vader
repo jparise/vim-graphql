@@ -28,7 +28,6 @@ Execute (Syntax assertions):
 
 Execute (Indent assertions):
   Assert exists('*GetGraphQLIndent')
-  Assert exists('*GetTypescriptIndent')
   Assert exists('*GetTypescriptGraphQLIndent')
 
 Do (re-indent buffer):
