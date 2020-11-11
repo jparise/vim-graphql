@@ -65,6 +65,20 @@ const query = gql`
 The list of recognized tag names is defined by the `g:graphql_javascript_tags`
 variable, which defaults to `["gql", "graphql", "Relay.QL"]`.
 
+You can also add a `# gql` comment at the start of a template string to
+indicate that its contents should be considered GraphQL syntax.
+
+```javascript
+const query = `# gql
+  {
+    user(id: ${uid}) {
+      firstName
+      lastName
+    }
+  }
+`;
+```
+
 Syntax highlighting within `.jsx` / `.tsx` files is also supported. These
 filetypes can be "compound" (`javascript.jsx` and `typescript.tsx`) or use the
 "react" variants (`javascriptreact` and `typescriptreact`).

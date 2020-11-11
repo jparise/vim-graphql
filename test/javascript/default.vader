@@ -48,6 +48,19 @@ Execute (Tag names can be customized):
   source ../after/syntax/javascript/graphql.vim
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('GraphQL.Tag')
 
+Given javascript (Template literal with comment):
+  const query = `# gql
+    {
+      user(id: ${uid}) {
+        firstName
+        lastName
+      }
+    }
+  `;
+
+Execute (Syntax assertions):
+  AssertEqual 'graphqlName', SyntaxOf('user')
+
 Given javascript (Template literal):
   const s = `text`;
 
