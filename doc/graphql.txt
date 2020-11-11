@@ -5,6 +5,8 @@ CONTENTS                                                    *graphql-contents*
 1. Introduction         |graphql-intro|
 2. JavaScript Support   |graphql-javascript|
 3. TypeScript Support   |graphql-typescript|
+4. ReasonML Support     |graphql-reasonml|
+5. PHP Support          |graphql-php|
 
 
 INTRODUCTION                                                   *graphql-intro*
@@ -45,6 +47,11 @@ REASONML                                                    *graphql-reasonml*
 
 GraphQL syntax support inside of ReasonML template strings using graphql-ppx
 is available.
+
+PHP                                                              *graphql-php*
+
+GraphQL syntax inside of heredoc and nowdoc strings is supported. The string
+identifier must be named `GQL` (case-insensitive).
 
 ------------------------------------------------------------------------------
 vim:tw=78:ft=help:norl:
