@@ -38,6 +38,8 @@ if graphql#has_syntax_group('jsTemplateExpression')
   exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ nextgroup=graphqlTemplateString'
   syntax region graphqlTemplateExpression start=+${+ end=+}+ contained contains=jsTemplateExpression containedin=graphqlFold keepend
 
+  syntax region graphqlTemplateString matchgroup=jsTemplateString start=+`#\s\{,4\}gql\>\s*$+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend
+
   hi def link graphqlTemplateString jsTemplateString
   hi def link graphqlTaggedTemplate jsTaggedTemplate
   hi def link graphqlTemplateExpression jsTemplateExpression
@@ -49,6 +51,8 @@ elseif graphql#has_syntax_group('javaScriptStringT')
   exec 'syntax region graphqlTemplateString matchgroup=javaScriptStringT start=+' . s:tags . '\@20<=`+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,javaScriptSpecial,javaScriptEmbed,@htmlPreproc extend'
   exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ nextgroup=graphqlTemplateString'
   syntax region graphqlTemplateExpression start=+${+ end=+}+ contained contains=@javaScriptEmbededExpr containedin=graphqlFold keepend
+
+  syntax region graphqlTemplateString matchgroup=javaScriptStringT start=+`#\s\{,4\}gql\>\s*$+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,javaScriptSpecial,javaScriptEmbed,@htmlPreproc extend
 
   hi def link graphqlTemplateString javaScriptStringT
   hi def link graphqlTaggedTemplate javaScriptEmbed
