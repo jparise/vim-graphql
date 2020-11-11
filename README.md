@@ -90,6 +90,26 @@ strings using [graphql-ppx][] is available.
 
 [graphql-ppx]: https://github.com/reasonml-community/graphql-ppx
 
+## PHP Support
+
+GraphQL syntax inside of [heredoc][] and [nowdoc][] strings is supported. The
+string identifier must be named `GQL` (case-insensitive).
+
+```php
+<?php
+$my_query = <<<GQL
+{
+  user(id: ${uid}) {
+    firstName
+    lastName
+  }
+}
+GQL;
+```
+
+[heredoc]: https://www.php.net/manual/language.types.string.php#language.types.string.syntax.heredoc
+[nowdoc]: https://www.php.net/manual/language.types.string.php#language.types.string.syntax.nowdoc
+
 ## Testing
 
 The test suite uses [Vader.vim](https://github.com/junegunn/vader.vim). To run

@@ -1,0 +1,47 @@
+Before:
+  setlocal shiftwidth=2
+  source ../after/syntax/php/graphql.vim
+
+Given php (Heredoc):
+  <?php
+  $my_query = <<<GQL
+  {
+    user(id: ${uid}) {
+      firstName
+      lastName
+    }
+  }
+  GQL;
+
+Execute (Syntax assertions):
+  AssertEqual 'Delimiter', SyntaxOf('GQL')
+  AssertEqual 'graphqlName', SyntaxOf('user')
+
+Do (re-indent buffer):
+  gg=G
+
+Expect (properly indented):
+  <?php
+  $my_query = <<<GQL
+  {
+    user(id: ${uid}) {
+      firstName
+      lastName
+    }
+  }
+  GQL;
+
+Given php (Nowdoc):
+  <?php
+  $my_query = <<<'GQL'
+  {
+    user(id: ${uid}) {
+      firstName
+      lastName
+    }
+  }
+  GQL;
+
+Execute (Syntax assertions):
+  AssertEqual 'Delimiter', SyntaxOf('GQL')
+  AssertEqual 'graphqlName', SyntaxOf('user')
