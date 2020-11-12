@@ -34,7 +34,7 @@ setlocal indentexpr=GetJavascriptGraphQLIndent()
 
 function GetJavascriptGraphQLIndent()
   let l:stack = map(synstack(v:lnum, 1), "synIDattr(v:val, 'name')")
-  if get(l:stack, 0) ==# 'graphqlTemplateString'
+  if get(l:stack, 0, '') ==# 'graphqlTemplateString'
     return GetGraphQLIndent()
   endif
 
