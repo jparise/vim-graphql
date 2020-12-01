@@ -21,7 +21,12 @@
 " Language: GraphQL
 " Maintainer: Jon Parise <jon@indelible.org>
 
-if exists('b:current_syntax')
+if !exists('main_syntax')
+  if exists('b:current_syntax')
+    finish
+  endif
+  let main_syntax = 'graphql'
+elseif exists('b:current_syntax') && b:current_syntax ==# 'graphql'
   finish
 endif
 
@@ -90,6 +95,11 @@ hi def link graphqlStructure        Structure
 hi def link graphqlType             Type
 hi def link graphqlVariable         Identifier
 
-syn sync minlines=500
+if main_syntax ==# 'graphql'
+  syn sync minlines=500
+endif
 
 let b:current_syntax = 'graphql'
+if main_syntax ==# 'graphql'
+  unlet main_syntax
+endif
