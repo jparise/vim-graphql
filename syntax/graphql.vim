@@ -90,6 +90,4 @@ hi def link graphqlStructure        Structure
 hi def link graphqlType             Type
 hi def link graphqlVariable         Identifier
 
-syn sync minlines=500
-
 let b:current_syntax = 'graphql'
