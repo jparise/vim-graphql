@@ -48,7 +48,7 @@ if graphql#has_syntax_group('jsTemplateExpression')
   hi def link graphqlTaggedTemplate jsTaggedTemplate
   hi def link graphqlTemplateExpression jsTemplateExpression
 
-  syn cluster jsExpression add=graphqlTaggedTemplate
+  syn cluster jsExpression add=graphqlTemplateString,graphqlTaggedTemplate
   syn cluster graphqlTaggedTemplate add=graphqlTemplateString
 elseif graphql#has_syntax_group('javaScriptStringT')
   " runtime/syntax/javascript.vim
