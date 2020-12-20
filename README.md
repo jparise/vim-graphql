@@ -124,6 +124,13 @@ GQL;
 [heredoc]: https://www.php.net/manual/language.types.string.php#language.types.string.syntax.heredoc
 [nowdoc]: https://www.php.net/manual/language.types.string.php#language.types.string.syntax.nowdoc
 
+## Language Server Protocol Support
+
+[coc-graphql](https://github.com/felippepuhle/coc-graphql) provides a Language
+Server Protocol extension for [coc.nvim](https://github.com/neoclide/coc.nvim)
+that interoperates with vim-graphql to provide schema-aware features like
+autocompletion support.
+
 ## Testing
 
 The test suite uses [Vader.vim](https://github.com/junegunn/vader.vim). To run
