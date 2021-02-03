@@ -7,6 +7,9 @@ specification.
 
 ## Installation
 
+This plugin requires Vim version 8 or later. Equivalent Neovim versions
+are also supported.
+
 ### Using [vim-plug](https://github.com/junegunn/vim-plug)
 
 1. Add `Plug 'jparise/vim-graphql'` to `~/.vimrc`
