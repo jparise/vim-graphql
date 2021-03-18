@@ -12,4 +12,5 @@ Given reason (Template):
   |}];
 
 Execute (Syntax assertions):
+  AssertEqual 'graphqlExtensionPoint', SyntaxOf('%graphql')
   AssertEqual 'graphqlName', SyntaxOf('user')
