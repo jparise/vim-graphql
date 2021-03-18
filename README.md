@@ -129,10 +129,11 @@ GQL;
 
 ## Language Server Protocol Support
 
-[coc-graphql](https://github.com/felippepuhle/coc-graphql) provides a Language
-Server Protocol extension for [coc.nvim](https://github.com/neoclide/coc.nvim)
-that interoperates with vim-graphql to provide schema-aware features like
-autocompletion support.
+[Language Server Protocol (LSP)](https://langserver.org/) implementations can
+enable editor features like schema-aware completion.
+
+- [coc.nvim](https://github.com/neoclide/coc.nvim) supports
+  [GraphQL languge servers](https://github.com/neoclide/coc.nvim/wiki/Language-servers#graphql)
 
 ## Testing
 
