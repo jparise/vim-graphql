@@ -1,0 +1,16 @@
+Before:
+  source ../after/syntax/rescript/graphql.vim
+
+Given rescript (Template):
+  %graphql(`
+    query UserQuery {
+      user {
+        id
+        name
+      }
+    }
+  `)
+
+Execute (Syntax assertions):
+  AssertEqual 'graphqlExtensionPoint', SyntaxOf('%graphql')
+  AssertEqual 'graphqlName', SyntaxOf('user')
