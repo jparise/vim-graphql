@@ -107,6 +107,22 @@ strings using [graphql-ppx][] is available.
 
 [graphql-ppx]: https://github.com/reasonml-community/graphql-ppx
 
+## ReScript Support
+
+GraphQL syntax support inside of [ReScript](https://rescript-lang.org/)
+strings is available.
+
+```rescript
+%graphql(`
+  query UserQuery {
+    user {
+      id
+      name
+    }
+  }
+`)
+```
+
 ## PHP Support
 
 GraphQL syntax inside of [heredoc][] and [nowdoc][] strings is supported. The

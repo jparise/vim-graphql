@@ -48,6 +48,10 @@ REASONML                                                    *graphql-reasonml*
 GraphQL syntax support inside of ReasonML template strings using graphql-ppx
 is available.
 
+RESCRIPT                                                    *graphql-rescript*
+
+GraphQL syntax support inside of ReScript strings is available.
+
 PHP                                                              *graphql-php*
 
 GraphQL syntax inside of heredoc and nowdoc strings is supported. The string
