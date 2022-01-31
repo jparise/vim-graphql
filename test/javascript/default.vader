@@ -40,8 +40,21 @@ Expect (propertly indented):
     }
   `;
 
-Given javascript (Template literal with comment):
+Given javascript (Template literal with `# gql` comment):
   const query = `# gql
+    {
+      user(id: ${uid}) {
+        firstName
+        lastName
+      }
+    }
+  `;
+
+Execute (Syntax assertions):
+  AssertEqual 'graphqlName', SyntaxOf('user')
+
+Given javascript (Template literal with `# graphql` comment):
+  const query = `# graphql
     {
       user(id: ${uid}) {
         firstName
