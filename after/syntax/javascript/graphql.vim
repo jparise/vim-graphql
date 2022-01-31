@@ -42,7 +42,7 @@ if graphql#has_syntax_group('jsTemplateExpression')
   exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ nextgroup=graphqlTemplateString'
   syntax region graphqlTemplateExpression start=+${+ end=+}+ contained contains=jsTemplateExpression containedin=graphqlFold keepend
 
-  syntax region graphqlTemplateString matchgroup=jsTemplateString start=+`#\s\{,4\}gql\>\s*$+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend
+  syntax region graphqlTemplateString matchgroup=jsTemplateString start=+`#\s\{,4\}\(gql\|graphql\)\>\s*$+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend
 
   hi def link graphqlTemplateString jsTemplateString
   hi def link graphqlTaggedTemplate jsTaggedTemplate
