@@ -51,8 +51,35 @@ Execute (Tag names can be customized):
   source ../after/syntax/typescript/graphql.vim
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('GraphQL.Tag')
 
+
 Given typescript (Template literal):
   const s = `text`;
 
 Execute (Untagged template literals aren't matched ):
   AssertNotEqual 'graphqlTemplateString', SyntaxOf('`')
+
+Given typescript (Template literal with `# gql` comment):
+  const query = `# gql
+    {
+      user(id: ${uid}) {
+        firstName
+        lastName
+      }
+    }
+  `;
+
+Execute (Syntax assertions):
+  AssertEqual 'graphqlName', SyntaxOf('user')
+
+Given typescript (Template literal with `# graphql` comment):
+  const query = `# graphql
+    {
+      user(id: ${uid}) {
+        firstName
+        lastName
+      }
+    }
+  `;
+
+Execute (Syntax assertions):
+  AssertEqual 'graphqlName', SyntaxOf('user')
