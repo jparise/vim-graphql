@@ -105,6 +105,8 @@ strings using [graphql-ppx][] is available.
 |}];
 ```
 
+The `%relay` extension point is also supported.
+
 [graphql-ppx]: https://github.com/reasonml-community/graphql-ppx
 
 ## ReScript Support
@@ -122,6 +124,10 @@ strings is available.
   }
 `)
 ```
+
+The [`%relay` extension node][%relay] is also supported.
+
+[%relay]: https://rescript-relay-documentation.vercel.app/docs/making-queries
 
 ## PHP Support
 

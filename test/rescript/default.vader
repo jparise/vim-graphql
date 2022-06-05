@@ -11,6 +11,20 @@ Given rescript (Template):
     }
   `)
 
-Execute (Syntax assertions):
+Execute (Syntax assertions [%graphql]):
   AssertEqual 'graphqlExtensionPoint', SyntaxOf('%graphql')
+  AssertEqual 'graphqlName', SyntaxOf('user')
+
+Given rescript (Template):
+  %relay(`
+    query UserQuery {
+      user {
+        id
+        name
+      }
+    }
+  `)
+
+Execute (Syntax assertions [%relay]):
+  AssertEqual 'graphqlExtensionPoint', SyntaxOf('%relay')
   AssertEqual 'graphqlName', SyntaxOf('user')
