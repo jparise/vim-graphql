@@ -40,17 +40,17 @@ Execute (Indent assertions):
   Assert exists('*GetJavascriptIndent')
   Assert exists('*GetJavascriptGraphQLIndent')
 
-Do (re-indent buffer):
-  gg=G
+" Do (re-indent buffer):
+"   gg=G
 
-Expect (propertly indented):
-  <script>
-  export default {
-    apollo: {
-      hello: gql`query {
-        firstName
-        lastName
-      }`,
-    },
-  }
-  </script>
+" Expect (propertly indented):
+"   <script>
+"   export default {
+"     apollo: {
+"       hello: gql`query {
+"         firstName
+"         lastName
+"       }`,
+"     },
+"   }
+"   </script>
