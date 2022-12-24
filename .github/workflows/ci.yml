@@ -18,14 +18,15 @@ jobs:
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: '3.10'
+          cache: 'pip'
       - name: Install vim
         run: |
           sudo add-apt-repository ppa:jonathonf/vim
           sudo apt install vim
       - name: Run lint
         run: |
-          pip install vim-vint==0.3.21
+          pip install -r requirements.txt
           make lint
       - name: Run tests
         run: make test
