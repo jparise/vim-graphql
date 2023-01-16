@@ -120,23 +120,26 @@ Execute (Schema assertions):
   AssertEqual 'graphqlName', SyntaxOf('query')
   AssertEqual 'graphqlType', SyntaxOf('QueryType')
 
-# https://graphql.github.io/graphql-spec/June2018/#sec-Type-System.Directives
+# https://spec.graphql.org/October2021/#sec-Type-System.Directives
 Given graphql (Directives):
   directive @include(if: Boolean!)
     on FIELD
       | FRAGMENT_SPREAD
       | INLINE_FRAGMENT
 
+  directive @delegateField(name: String!) repeatable on OBJECT | INTERFACE
+
 Execute (Directive assertions):
   AssertEqual 'graphqlStructure', SyntaxOf('directive')
   AssertEqual 'graphqlDirective', SyntaxOf('@include')
   AssertEqual 'graphqlKeyword', SyntaxOf('on')
+  AssertEqual 'graphqlKeyword', SyntaxOf('repeatable')
   AssertEqual 'graphqlDirectiveLocation', SyntaxOf('FIELD')
   AssertEqual 'graphqlDirectiveLocation', SyntaxOf('FRAGMENT_SPREAD')
   AssertEqual 'graphqlDirectiveLocation', SyntaxOf('INLINE_FRAGMENT')
   AssertEqual 'graphqlOperator', SyntaxOf('|')
 
-# https://graphql.github.io/graphql-spec/June2018/#sec-Objects
+# https://spec.graphql.org/October2021/#sec-Objects
 Given graphql (Objects):
   type Type implements Interface1 & Interface2 {
     name: Thing
