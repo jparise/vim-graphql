@@ -154,3 +154,13 @@ Execute (Object assertions):
   AssertEqual 'graphqlType', SyntaxOf('Interface2')
   AssertEqual 'graphqlName', SyntaxOf('name')
   AssertEqual 'graphqlType', SyntaxOf('Thing')
+
+Given graphql (Custom Scalars):
+  scalar UUID @specifiedBy(url: "https://tools.ietf.org/html/rfc4122")
+
+Execute (Custom Scalar assertions):
+  AssertEqual 'graphqlStructure', SyntaxOf('scalar')
+  AssertEqual 'graphqlType', SyntaxOf('UUID')
+  AssertEqual 'graphqlDirective', SyntaxOf('@specifiedBy')
+  AssertEqual 'graphqlName', SyntaxOf('url')
+  AssertEqual 'graphqlString', SyntaxOf('https://tools.ietf.org')
