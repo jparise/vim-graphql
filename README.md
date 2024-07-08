@@ -25,9 +25,9 @@ vim -u NONE -c "helptags graphql/doc" -c q
 
 ## Syntax Highlighting
 
-Complete syntax highlighting is enable for the `graphql` [filetype][]. This
-filetype is automatically selected for filenames ending in `.graphql`,
-`.graphqls`, and `.gql`.
+Complete syntax highlighting is enabled for the `graphql` [filetype][]. This
+filetype is automatically selected for filenames ending in `.gql`, `.graphql`,
+and `.graphqls`.
 
 If you would like to enable automatic syntax support for more file extensions
 (e.g., `*.prisma`), create a file named `~/.vim/after/ftdetect/graphql.vim`
@@ -66,7 +66,7 @@ const query = gql`
 
 The list of recognized tag names is defined by the `g:graphql_javascript_tags`
 variable, which defaults to `["gql", "graphql", "Relay.QL"]`. This can also
-be set on a per-buffer basis using `b:graphql_javascript_tags`.
+be set on a per-buffer basis using the `b:graphql_javascript_tags` variable.
 
 You can also add a `# gql` or `# graphql` comment at the start of a template
 string to indicate that its contents should be considered GraphQL syntax.
@@ -152,10 +152,11 @@ GQL;
 ## Language Server Protocol Support
 
 [Language Server Protocol (LSP)](https://langserver.org/) implementations can
-enable editor features like schema-aware completion.
+enable editor features like schema-aware completion. This plugin does not
+implement the Language Server Protocol, but here are some others that do:
 
 - [coc.nvim](https://github.com/neoclide/coc.nvim) supports
-  [GraphQL languge servers](https://github.com/neoclide/coc.nvim/wiki/Language-servers#graphql)
+  [GraphQL language servers](https://github.com/neoclide/coc.nvim/wiki/Language-servers#graphql)
 
 ## Testing
 
