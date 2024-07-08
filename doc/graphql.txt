@@ -6,7 +6,8 @@ CONTENTS                                                    *graphql-contents*
 2. JavaScript Support   |graphql-javascript|
 3. TypeScript Support   |graphql-typescript|
 4. ReasonML Support     |graphql-reasonml|
-5. PHP Support          |graphql-php|
+5. ReScript Support     |graphql-rescript|
+6. PHP Support          |graphql-php|
 
 
 INTRODUCTION                                                   *graphql-intro*
