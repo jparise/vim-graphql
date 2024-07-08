@@ -26,6 +26,7 @@ supported.
                                                   *graphql-javascript-options*
 
                                                    *g:graphql_javascript_tags*
+                                                   *b:graphql_javascript_tags*
 |g:graphql_javascript_tags|                                    list of strings
 
   Default: `["gql", "graphql", "Relay.QL"]`

@@ -65,7 +65,8 @@ const query = gql`
 ```
 
 The list of recognized tag names is defined by the `g:graphql_javascript_tags`
-variable, which defaults to `["gql", "graphql", "Relay.QL"]`.
+variable, which defaults to `["gql", "graphql", "Relay.QL"]`. This can also
+be set on a per-buffer basis using `b:graphql_javascript_tags`.
 
 You can also add a `# gql` or `# graphql` comment at the start of a template
 string to indicate that its contents should be considered GraphQL syntax.

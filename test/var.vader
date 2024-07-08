@@ -1,0 +1,17 @@
+Before:
+  let g:graphql_some_variable = 'abc'
+
+After:
+  unlet! g:graphql_some_variable
+  unlet! b:undefined_variable_name
+
+Execute(graphql#var should return global variables):
+  AssertEqual 'abc', graphql#var('graphql_some_variable', '')
+
+Execute(graphql#var should return buffer overrides):
+  let b:graphql_some_variable = 'def'
+
+  AssertEqual 'def', graphql#var('graphql_some_variable', '')
+
+Execute(graphql#var should return default value for undefined variables):
+  AssertEqual 'default', graphql#var('undefined_variable_name', 'default')
