@@ -12,3 +12,5 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-patch"]
+      - dependency-name: "setuptools"
+        update-types: ["version-update:semver-minor", "version-update:semver-patch"]
