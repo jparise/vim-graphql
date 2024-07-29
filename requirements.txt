@@ -1,2 +1,2 @@
-setuptools==71.0.1
+setuptools==72.0.0
 vim-vint==0.3.21
