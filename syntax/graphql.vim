@@ -21,8 +21,11 @@
 " Language: GraphQL
 " Maintainer: Jon Parise <jon@indelible.org>
 
-if exists('b:current_syntax')
-  finish
+if !exists('main_syntax')
+  if exists('b:current_syntax')
+    finish
+  endif
+  let main_syntax = 'graphql'
 endif
 
 syn case match
@@ -72,6 +75,10 @@ syn keyword graphqlMetaFields __schema __type __typename
 syn region  graphqlFold matchgroup=graphqlBraces start="{" end="}" transparent fold contains=ALLBUT,graphqlStructure
 syn region  graphqlList matchgroup=graphqlBraces start="\[" end="]" transparent contains=ALLBUT,graphqlDirective,graphqlStructure
 
+if main_syntax ==# 'graphql'
+  syn sync minlines=500
+endif
+
 hi def link graphqlComment          Comment
 hi def link graphqlOperator         Operator
 
@@ -91,8 +98,8 @@ hi def link graphqlStructure        Structure
 hi def link graphqlType             Type
 hi def link graphqlVariable         Identifier
 
-if !get(b:, 'graphql_nested_syntax')
-    syn sync minlines=500
-endif
-
 let b:current_syntax = 'graphql'
+
+if main_syntax ==# 'graphql'
+  unlet main_syntax
+endif

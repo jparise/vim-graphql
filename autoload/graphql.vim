@@ -27,6 +27,30 @@ function! graphql#var(name, default) abort
   return get(b:, a:name, get(g:, a:name, a:default))
 endfunction
 
+" Embed our GraphQL syntax and make the result available as a group.
+function! graphql#embed_syntax(group) abort
+  let l:saved_current_syntax = get(b:, 'current_syntax', '')
+  let l:saved_main_syntax = get(g:, 'main_syntax', '')
+
+  " Temporarily promote the current (outer) syntax to the "main" syntax.
+  " Our syntax file uses this information to know when it's being embedded.
+  let main_syntax = l:saved_current_syntax
+  unlet! b:current_syntax
+
+  " Include our syntax file and make its top-level items available as `@group`.
+  exec 'syn include @' . a:group . ' syntax/graphql.vim'
+
+  " Restore the previous syntax state.
+  if l:saved_current_syntax !=# ''
+    let b:current_syntax = l:saved_current_syntax
+  endif
+  if l:saved_main_syntax !=# ''
+    let main_syntax = l:saved_main_syntax
+  else
+    unlet! main_syntax
+  endif
+endfunction
+
 function! graphql#has_syntax_group(group) abort
   try
     silent execute 'silent highlight ' . a:group

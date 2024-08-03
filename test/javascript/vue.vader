@@ -32,6 +32,7 @@ Given vue (Template):
   </script>
 
 Execute (Syntax assertions):
+  AssertEqual 'html', b:current_syntax
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
   AssertEqual 'graphqlStructure', SyntaxOf('query')
 
