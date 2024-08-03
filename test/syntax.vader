@@ -116,6 +116,7 @@ Given graphql (Schema):
   }
 
 Execute (Schema assertions):
+  AssertEqual 'graphql', b:current_syntax
   AssertEqual 'graphqlStructure', SyntaxOf('schema')
   AssertEqual 'graphqlName', SyntaxOf('query')
   AssertEqual 'graphqlType', SyntaxOf('QueryType')

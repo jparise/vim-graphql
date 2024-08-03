@@ -19,6 +19,7 @@ Given javascript (Template):
   `;
 
 Execute (Syntax assertions):
+  AssertEqual 'javascript', b:current_syntax
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
   AssertEqual 'graphqlTemplateExpression', SyntaxOf('${uid}')
   AssertEqual 'graphqlName', SyntaxOf('user')
@@ -51,6 +52,7 @@ Given javascript (Template literal with `# gql` comment):
   `;
 
 Execute (Syntax assertions):
+  AssertEqual 'javascript', b:current_syntax
   AssertEqual 'graphqlName', SyntaxOf('user')
 
 Given javascript (Template literal with `# graphql` comment):
@@ -64,6 +66,7 @@ Given javascript (Template literal with `# graphql` comment):
   `;
 
 Execute (Syntax assertions):
+  AssertEqual 'javascript', b:current_syntax
   AssertEqual 'graphqlName', SyntaxOf('user')
 
 Given javascript (Template literal):

@@ -10,6 +10,7 @@ Given javascriptreact (Template):
   const query = gql`{}`;
 
 Execute (Syntax assertions):
+  AssertEqual 'javascript', b:current_syntax
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
   AssertEqual 'graphqlBraces', SyntaxOf('{}')
 
@@ -17,6 +18,7 @@ Given javascript.jsx (Template):
   const query = gql`{}`;
 
 Execute (Syntax assertions):
+  AssertEqual 'javascript', b:current_syntax
   AssertEqual 'graphqlTaggedTemplate', SyntaxOf('gql')
   AssertEqual 'graphqlBraces', SyntaxOf('{}')
 

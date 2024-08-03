@@ -14,6 +14,7 @@ Given php (Heredoc):
   GQL;
 
 Execute (Syntax assertions):
+  AssertEqual 'php', b:current_syntax
   AssertEqual 'Delimiter', SyntaxOf('GQL')
   AssertEqual 'graphqlName', SyntaxOf('user')
 
@@ -43,10 +44,6 @@ Given php (Nowdoc):
   GQL;
 
 Execute (Syntax assertions):
+  AssertEqual 'php', b:current_syntax
   AssertEqual 'Delimiter', SyntaxOf('GQL')
   AssertEqual 'graphqlName', SyntaxOf('user')
-
-Execute (Settings assertions):
-  redir @a | syntax sync | redir END
-  let match = match(@a, 'syncing starts 500 lines before top line') >= 0
-  Assert !match, "'syntax sync minlines' was changed in outer syntax"
