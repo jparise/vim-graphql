@@ -68,6 +68,22 @@ The list of recognized tag names is defined by the `g:graphql_javascript_tags`
 variable, which defaults to `["gql", "graphql", "Relay.QL"]`. This can also
 be set on a per-buffer basis using the `b:graphql_javascript_tags` variable.
 
+Untagged template literals passed as the first argument to specific functions
+can also be recognized. `g:graphql_javascript_functions` defines this list of
+functions, which defaults to `["graphql"]`. This list can also be set on a
+per-buffer basis using the `b:graphql_javascript_functions` variable.
+
+```javascript
+const query = graphql(`
+  {
+    user(id: ${uid}) {
+      firstName
+      lastName
+    }
+  }
+`;
+```
+
 You can also add a `# gql` or `# graphql` comment at the start of a template
 string to indicate that its contents should be considered GraphQL syntax.
 

@@ -23,7 +23,8 @@
 
 call graphql#embed_syntax('GraphQLSyntax')
 
-let s:tags = '\%(' . join(graphql#javascript_tags(), '\|') . '\)'
+let s:functions = map(copy(graphql#javascript_functions()), 'v:val .. "("')
+let s:tags = '\%(' . join(graphql#javascript_tags() + s:functions, '\|') . '\)'
 
 if graphql#has_syntax_group('jsTemplateExpression')
   " pangloss/vim-javascript

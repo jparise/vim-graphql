@@ -60,6 +60,10 @@ function! graphql#has_syntax_group(group) abort
   return v:true
 endfunction
 
+function! graphql#javascript_functions() abort
+  return graphql#var('graphql_javascript_functions', ['graphql'])
+endfunction
+
 function! graphql#javascript_tags() abort
   return graphql#var('graphql_javascript_tags', ['gql', 'graphql', 'Relay.QL'])
 endfunction

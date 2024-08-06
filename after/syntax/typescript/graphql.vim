@@ -23,7 +23,8 @@
 
 call graphql#embed_syntax('GraphQLSyntax')
 
-let s:tags = '\%(' . join(graphql#javascript_tags(), '\|') . '\)'
+let s:functions = map(copy(graphql#javascript_functions()), 'v:val .. "("')
+let s:tags = '\%(' . join(graphql#javascript_tags() + s:functions, '\|') . '\)'
 
 exec 'syntax region graphqlTemplateString matchgroup=typescriptTemplate start=+' . s:tags . '\@20<=`+ skip=+\\`+ end=+`+ contains=@GraphQLSyntax,typescriptTemplateSubstitution extend'
 exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ nextgroup=graphqlTemplateString'
