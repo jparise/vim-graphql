@@ -78,7 +78,7 @@ Given javascript (Template literal with a graphql() function):
         lastName
       }
     }
-  `;
+  `);
 
 Execute (Syntax assertions):
   AssertEqual 'javascript', b:current_syntax
@@ -98,7 +98,7 @@ Given javascript (Custom function):
         lastName
       }
     }
-  `;
+  `);
 
 Execute (Function names can be customized):
   let b:graphql_javascript_functions = ['gql']

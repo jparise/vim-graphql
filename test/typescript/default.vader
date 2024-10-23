@@ -95,7 +95,7 @@ Given typescript (Template literal with a graphql() function):
         lastName
       }
     }
-  `;
+  `);
 
 Execute (Syntax assertions):
   AssertEqual 'typescript', b:current_syntax
