@@ -31,7 +31,7 @@ if graphql#has_syntax_group('jsTemplateExpression')
   exec 'syntax region graphqlTemplateString matchgroup=jsTemplateString start=+' . s:tags . '\@20<=`+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend'
   exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ nextgroup=graphqlTemplateString'
 
-  exec 'syntax region graphqlTemplateString matchgroup=jsTemplateString start=+\(' . s:functions . '\s*(\)\@<=`$+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend'
+  exec 'syntax region graphqlTemplateString matchgroup=jsTemplateString start=+\%(' . s:functions . '\s*(\)\@40<=`$+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend'
 
   syntax region graphqlTemplateString matchgroup=jsTemplateString start=+`#\s\{,4\}\(gql\|graphql\)\>\s*$+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend
   syntax region graphqlTemplateExpression start=+${+ end=+}+ contained contains=jsTemplateExpression containedin=graphqlFold keepend
@@ -47,7 +47,7 @@ elseif graphql#has_syntax_group('javaScriptStringT')
   exec 'syntax region graphqlTemplateString matchgroup=javaScriptStringT start=+' . s:tags . '\@20<=`+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,javaScriptSpecial,javaScriptEmbed,@htmlPreproc extend'
   exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ nextgroup=graphqlTemplateString'
 
-  exec 'syntax region graphqlTemplateString matchgroup=javaScriptStringT start=+\(' . s:functions . '\s*(\)\@<=`$+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,javaScriptSpecial,javaScriptEmbed,@htmlPreproc extend'
+  exec 'syntax region graphqlTemplateString matchgroup=javaScriptStringT start=+\%(' . s:functions . '\s*(\)\@40<=`$+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,javaScriptSpecial,javaScriptEmbed,@htmlPreproc extend'
 
   syntax region graphqlTemplateString matchgroup=javaScriptStringT start=+`#\s\{,4\}\(gql\|graphql\)\>\s*$+ skip=+\\\\\|\\`+ end=+`+ contains=@GraphQLSyntax,javaScriptSpecial,javaScriptEmbed,@htmlPreproc extend
   syntax region graphqlTemplateExpression start=+${+ end=+}+ contained contains=@javaScriptEmbededExpr containedin=graphqlFold keepend
