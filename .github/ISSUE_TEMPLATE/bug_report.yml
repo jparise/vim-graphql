@@ -1,0 +1,17 @@
+name: Bug report
+description: Report an issue that you've encountered
+labels: bug
+body:
+  - id: description
+    type: markdown
+    attributes:
+      label: "Description"
+      description: "What problem are you seeing? How can you recreate it?"
+  - id: version
+    type: textarea
+    attributes:
+      label: "Vim Version"
+      description: "The output of `vim --version` or `nvim --version`:"
+      render: shell
+    validations:
+      required: true
