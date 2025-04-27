@@ -23,11 +23,12 @@
 
 call graphql#embed_syntax('GraphQLSyntax')
 
-let s:functions = map(copy(graphql#javascript_functions()), 'v:val .. "("')
-let s:tags = '\%(' . join(graphql#javascript_tags() + s:functions, '\|') . '\)'
+let s:tags = '\%(' . join(graphql#javascript_tags(), '\|') . '\)'
+let s:functions = '\%(' . join(graphql#javascript_functions(), '\|') . '\)'
 
 exec 'syntax region graphqlTemplateString matchgroup=typescriptTemplate start=+' . s:tags . '\@20<=`+ skip=+\\`+ end=+`+ contains=@GraphQLSyntax,typescriptTemplateSubstitution extend'
 exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ nextgroup=graphqlTemplateString'
+exec 'syntax region graphqlTemplateString matchgroup=typescriptTemplate start=+\(' . s:functions . '\s*(\)\@<=`+ skip=+\\`+ end=+`+ contains=@GraphQLSyntax,typescriptTemplateSubstitution containedin=typescriptFuncCallArg extend'
 
 " Support expression interpolation ((${...})) inside template strings.
 syntax region graphqlTemplateExpression start=+${+ end=+}+ contained contains=typescriptTemplateSubstitution containedin=graphqlFold keepend

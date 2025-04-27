@@ -99,4 +99,6 @@ Given typescript (Template literal with a graphql() function):
 
 Execute (Syntax assertions):
   AssertEqual 'typescript', b:current_syntax
+  AssertEqual 'typescriptTemplate', SyntaxOf('`')
+  AssertEqual 'typescriptTemplateSB', SyntaxOf('${uid}')
   AssertEqual 'graphqlName', SyntaxOf('user')
