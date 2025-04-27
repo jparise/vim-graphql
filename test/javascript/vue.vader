@@ -16,8 +16,8 @@ After:
   syntax enable
 
 Execute (Expected syntax groups):
-  Assert graphql#has_syntax_group('graphqlTemplateExpression')
-  Assert graphql#has_syntax_group('graphqlTemplateString')
+  Assert hlexists('graphqlTemplateExpression')
+  Assert hlexists('graphqlTemplateString')
 
 Given vue (Template):
   <script>

@@ -51,15 +51,6 @@ function! graphql#embed_syntax(group) abort
   endif
 endfunction
 
-function! graphql#has_syntax_group(group) abort
-  try
-    silent execute 'silent highlight ' . a:group
-  catch
-    return v:false
-  endtry
-  return v:true
-endfunction
-
 function! graphql#javascript_functions() abort
   return graphql#var('graphql_javascript_functions', ['graphql'])
 endfunction

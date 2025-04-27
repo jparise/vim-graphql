@@ -54,7 +54,7 @@ syn cluster javaScriptEmbededExpr add=graphqlTaggedTemplate
 syn cluster graphqlTaggedTemplate add=graphqlTemplateString
 
 " pangloss/vim-javascript
-if graphql#has_syntax_group('jsTemplateString')
+if hlexists('jsTemplateString')
   exec 'syntax region graphqlTemplateString matchgroup=jsTemplateString '
         \ 'start=+' . s:tags . '\@20<=`+ skip=+\\`+ end=+`+ '
         \ 'contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend'

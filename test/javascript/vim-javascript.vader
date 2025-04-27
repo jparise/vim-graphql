@@ -12,6 +12,6 @@ After:
   syntax enable
 
 Execute (Expected syntax groups):
-  Assert graphql#has_syntax_group('jsTemplateExpression')
+  Assert hlexists('jsTemplateExpression')
 
 Include: default.vader
