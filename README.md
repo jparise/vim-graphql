@@ -12,7 +12,7 @@ as JavaScript).
 
 ## Installation
 
-This plugin requires Vim version 8 or later. Equivalent Neovim versions
+This plugin requires Vim version 8.2 or later. Equivalent Neovim versions
 are also supported.
 
 ### Using [vim-plug](https://github.com/junegunn/vim-plug)
