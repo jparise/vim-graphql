@@ -87,7 +87,7 @@ const query = graphql(`
       lastName
     }
   }
-`;
+`);
 ```
 
 You can also add a `# gql` or `# graphql` comment at the start of a template
