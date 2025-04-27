@@ -82,6 +82,7 @@ Given javascript (Template literal with a graphql() function):
 
 Execute (Syntax assertions):
   AssertEqual 'javascript', b:current_syntax
+  AssertEqual 'graphqlTemplateExpression', SyntaxOf('${uid}')
   AssertEqual 'graphqlName', SyntaxOf('user')
 
 Given javascript (Template literal):
