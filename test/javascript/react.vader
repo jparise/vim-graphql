@@ -3,8 +3,8 @@ Before:
   source ../after/syntax/javascriptreact/graphql.vim
 
 Execute (Expected syntax groups):
-  Assert graphql#has_syntax_group('graphqlTemplateExpression')
-  Assert graphql#has_syntax_group('graphqlTemplateString')
+  Assert hlexists('graphqlTemplateExpression')
+  Assert hlexists('graphqlTemplateString')
 
 Given javascriptreact (Template):
   const query = gql`{}`;

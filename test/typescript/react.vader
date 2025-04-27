@@ -2,8 +2,8 @@ Before:
   source ../after/syntax/typescriptreact/graphql.vim
 
 Execute (Expected syntax groups):
-  Assert graphql#has_syntax_group('graphqlTemplateExpression')
-  Assert graphql#has_syntax_group('graphqlTemplateString')
+  Assert hlexists('graphqlTemplateExpression')
+  Assert hlexists('graphqlTemplateString')
 
 Given typescriptreact (Template):
   const query = gql`{}`;
