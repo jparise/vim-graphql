@@ -17,8 +17,12 @@ jobs:
       - uses: raven-actions/actionlint@v2
       - uses: actions/setup-python@v5
         with:
+          python-version: '3.13'
           cache: 'pip'
-      - run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
       - uses: rhysd/action-setup-vim@v1
         id: vim
       - run: make lint
