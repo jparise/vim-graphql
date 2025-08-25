@@ -13,7 +13,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: raven-actions/actionlint@v2
       - uses: actions/setup-python@v5
         with:
@@ -44,7 +44,7 @@ jobs:
     name: "test (${{ matrix.vim.neovim && 'neovim' || 'vim' }} ${{ matrix.vim.version }})"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: rhysd/action-setup-vim@v1
         id: vim
         with:
