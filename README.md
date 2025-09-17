@@ -1,8 +1,8 @@
 # GraphQL for Vim
 
 This Vim plugin provides [GraphQL](https://graphql.org/) file detection, syntax
-highlighting, and indentation. It currently targets the [October 2021
-Edition](https://spec.graphql.org/October2021/) of the GraphQL specification.
+highlighting, and indentation. It currently targets the [September 2025
+Edition](https://spec.graphql.org/September2025/) of the GraphQL specification.
 
 The core runtime files are also included with Vim 9.1.0955+. They provide the
 foundational support (ftplugin, indent, syntax) for the `graphql` filetype.

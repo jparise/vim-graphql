@@ -60,11 +60,11 @@ syn match graphqlVariable   "\<\$\h\w*\>"  display
 syn match graphqlName       "\<\h\w*\>"    display
 syn match graphqlType       "\<_*\u\w*\>"  display
 
-" https://spec.graphql.org/October2021/#ExecutableDirectiveLocation
+" https://spec.graphql.org/September2025/#ExecutableDirectiveLocation
 syn keyword graphqlDirectiveLocation QUERY MUTATION SUBSCRIPTION FIELD
 syn keyword graphqlDirectiveLocation FRAGMENT_DEFINITION FRAGMENT_SPREAD
 syn keyword graphqlDirectiveLocation INLINE_FRAGMENT VARIABLE_DEFINITION
-" https://spec.graphql.org/October2021/#TypeSystemDirectiveLocation
+" https://spec.graphql.org/September2025/#TypeSystemDirectiveLocation
 syn keyword graphqlDirectiveLocation SCHEMA SCALAR OBJECT FIELD_DEFINITION
 syn keyword graphqlDirectiveLocation ARGUMENT_DEFINITION INTERFACE UNION
 syn keyword graphqlDirectiveLocation ENUM ENUM_VALUE INPUT_OBJECT
