@@ -21,7 +21,7 @@
 " Language: GraphQL
 " Maintainer: Jon Parise <jon@indelible.org>
 
-call graphql#embed_syntax('GraphQLSyntax')
+call graphql#embed_syntax('resGraphQL')
 
 syntax region graphqlExtensionPoint start=+%\(graphql\|relay\)(+ end=+)+ contains=graphqlExtensionPointS
-syntax region graphqlExtensionPointS matchgroup=String start=+`+ end=+`+ contains=@GraphQLSyntax contained
+syntax region graphqlExtensionPointS matchgroup=String start=+`+ end=+`+ contains=@resGraphQL contained

@@ -21,14 +21,14 @@
 " Language: GraphQL
 " Maintainer: Jon Parise <jon@indelible.org>
 
-call graphql#embed_syntax('GraphQLSyntax')
+call graphql#embed_syntax('typescriptGraphQL')
 
 let s:tags = '\%(' . join(graphql#javascript_tags(), '\|') . '\)'
 let s:functions = '\%(' . join(graphql#javascript_functions(), '\|') . '\)'
 
-exec 'syntax region graphqlTemplateString matchgroup=typescriptTemplate start=+' . s:tags . '\@20<=`+ skip=+\\`+ end=+`+ contains=@GraphQLSyntax,typescriptTemplateSubstitution extend'
+exec 'syntax region graphqlTemplateString matchgroup=typescriptTemplate start=+' . s:tags . '\@20<=`+ skip=+\\`+ end=+`+ contains=@typescriptGraphQL,typescriptTemplateSubstitution extend'
 exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ nextgroup=graphqlTemplateString'
-exec 'syntax region graphqlTemplateString matchgroup=typescriptTemplate start=+\%(' . s:functions . '\s*(\)\@40<=`+ skip=+\\`+ end=+`+ contains=@GraphQLSyntax,typescriptTemplateSubstitution containedin=typescriptFuncCallArg extend'
+exec 'syntax region graphqlTemplateString matchgroup=typescriptTemplate start=+\%(' . s:functions . '\s*(\)\@40<=`+ skip=+\\`+ end=+`+ contains=@typescriptGraphQL,typescriptTemplateSubstitution containedin=typescriptFuncCallArg extend'
 
 " Support expression interpolation ((${...})) inside template strings.
 syntax region graphqlTemplateExpression start=+${+ end=+}+ contained contains=typescriptTemplateSubstitution containedin=graphqlFold keepend
@@ -40,7 +40,7 @@ syntax region graphqlTemplateString
       \ end=+`+me=s-1
       \ containedin=typescriptTemplate
       \ contained
-      \ contains=@GraphQLSyntax,typescriptTemplateSubstitution extend
+      \ contains=@typescriptGraphQL,typescriptTemplateSubstitution extend
 
 hi def link graphqlTemplateString typescriptTemplate
 hi def link graphqlTemplateExpression typescriptTemplateSubstitution

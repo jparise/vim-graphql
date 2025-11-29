@@ -21,7 +21,7 @@
 " Language: GraphQL
 " Maintainer: Jon Parise <jon@indelible.org>
 
-call graphql#embed_syntax('GraphQLSyntax')
+call graphql#embed_syntax('phpGraphQL')
 
-syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\@<=\(\"\=\)\z(\(\I\i*\)\=\(gql\)\c\(\i*\)\)\2$" end="^\s*\z1\>" contained contains=@GraphQLSyntax,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpBackslashSequences,phpMethodsVar,@Spell keepend extend
-syntax region phpNowDoc matchgroup=Delimiter start="\(<<<\)\@<='\z(\(\I\i*\)\=\(gql\)\c\(\i*\)\)'$" end="^\s*\z1\>" contained contains=@GraphQLSyntax,@Spell keepend extend
+syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\@<=\(\"\=\)\z(\(\I\i*\)\=\(gql\)\c\(\i*\)\)\2$" end="^\s*\z1\>" contained contains=@phpGraphQL,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpBackslashSequences,phpMethodsVar,@Spell keepend extend
+syntax region phpNowDoc matchgroup=Delimiter start="\(<<<\)\@<='\z(\(\I\i*\)\=\(gql\)\c\(\i*\)\)'$" end="^\s*\z1\>" contained contains=@phpGraphQL,@Spell keepend extend

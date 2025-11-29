@@ -21,7 +21,7 @@
 " Language: GraphQL
 " Maintainer: Jon Parise <jon@indelible.org>
 
-call graphql#embed_syntax('GraphQLSyntax')
+call graphql#embed_syntax('javaScriptGraphQL')
 
 let s:tags = '\%(' . join(graphql#javascript_tags(), '\|') . '\)'
 let s:functions = '\%(' . join(graphql#javascript_functions(), '\|') . '\)'
@@ -30,15 +30,15 @@ exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ '
       \ 'nextgroup=graphqlTemplateString'
 exec 'syntax region graphqlTemplateString matchgroup=javaScriptStringT '
       \ 'start=+' . s:tags . '\@20<=`+ skip=+\\\\\|\\`+ end=+`+ '
-      \ 'contains=@GraphQLSyntax,javaScriptSpecial,javaScriptEmbed,@htmlPreproc '
+      \ 'contains=@javaScriptGraphQL,javaScriptSpecial,javaScriptEmbed,@htmlPreproc '
       \ 'extend'
 exec 'syntax region graphqlTemplateString matchgroup=javaScriptStringT '
       \ 'start=+\%(' . s:functions . '\s*(\)\@40<=`+ skip=+\\\\\|\\`+ end=+`+ '
-      \ 'contains=@GraphQLSyntax,javaScriptSpecial,javaScriptEmbed,@htmlPreproc '
+      \ 'contains=@javaScriptGraphQL,javaScriptSpecial,javaScriptEmbed,@htmlPreproc '
       \ 'extend'
 syntax region graphqlTemplateString matchgroup=javaScriptStringT
       \ start=+`#\s\{,4\}\(gql\|graphql\)\>\s*$+ skip=+\\\\\|\\`+ end=+`+
-      \ contains=@GraphQLSyntax,javaScriptSpecial,javaScriptEmbed,@htmlPreproc
+      \ contains=@javaScriptGraphQL,javaScriptSpecial,javaScriptEmbed,@htmlPreproc
       \ extend
 syntax region graphqlTemplateExpression 
       \ start=+${+ end=+}+
@@ -57,13 +57,13 @@ syn cluster graphqlTaggedTemplate add=graphqlTemplateString
 if hlexists('jsTemplateString')
   exec 'syntax region graphqlTemplateString matchgroup=jsTemplateString '
         \ 'start=+' . s:tags . '\@20<=`+ skip=+\\`+ end=+`+ '
-        \ 'contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend'
+        \ 'contains=@javaScriptGraphQL,jsTemplateExpression,jsSpecial extend'
   exec 'syntax region graphqlTemplateString matchgroup=jsTemplateString '
         \ 'start=+\%(' . s:functions . '\s*(\)\@40<=`+ skip=+\\`+ end=+`+ '
-        \ 'contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend'
+        \ 'contains=@javaScriptGraphQL,jsTemplateExpression,jsSpecial extend'
   syntax region graphqlTemplateString matchgroup=jsTemplateString
         \ start=+`#\s\{,4\}\(gql\|graphql\)\>\s*$+ skip=+\\`+ end=+`+
-        \ contains=@GraphQLSyntax,jsTemplateExpression,jsSpecial extend
+        \ contains=@javaScriptGraphQL,jsTemplateExpression,jsSpecial extend
   syntax region graphqlTemplateExpression
         \ start=+${+ end=+}+
         \ contains=jsTemplateExpression contained containedin=graphqlFold
