@@ -48,6 +48,8 @@ fragment frag on Friend @onFragmentDefinition {
     bar: $b
     obj: {
       key: "value"
+      escaped: "hello\nworld\t\"quotes\"\\slash"
+      unicode: "fixed\u0000 braced\u{1F600}"
       block: """
       block string uses \"""
       """

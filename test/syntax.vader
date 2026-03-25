@@ -53,6 +53,25 @@ Execute (String assertions):
   AssertEqual 'graphqlString', SyntaxOf('"""Block\nstring"""')
   AssertEqual 'graphqlString', SyntaxOf('"""Block\n\\"""\nstring"""')
 
+# https://spec.graphql.org/September2025/#EscapedCharacter
+Given graphql (Escape Sequences):
+  "hello\nworld"
+  "tab\there"
+  "quote\"end"
+  "slash\\path"
+  "null\u0000"
+  "emoji\u{1F600}"
+  """block\"""end"""
+
+Execute (Escape Sequence assertions):
+  AssertEqual 'graphqlEscape', SyntaxAt(1, 7)
+  AssertEqual 'graphqlEscape', SyntaxAt(2, 5)
+  AssertEqual 'graphqlEscape', SyntaxAt(3, 7)
+  AssertEqual 'graphqlEscape', SyntaxAt(4, 7)
+  AssertEqual 'graphqlEscape', SyntaxAt(5, 6)
+  AssertEqual 'graphqlEscape', SyntaxAt(6, 7)
+  AssertEqual 'graphqlEscape', SyntaxAt(7, 9)
+
 # https://graphql.github.io/graphql-spec/June2018/#sec-Field-Arguments
 Given graphql (Arguments):
   query queryName($site: Site = MOBILE) {
