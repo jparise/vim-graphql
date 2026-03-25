@@ -41,8 +41,13 @@ syn match graphqlOperator   "\M..." display
 syn keyword graphqlBoolean  true false
 syn keyword graphqlNull     null
 syn match   graphqlNumber   "-\=\<\%(0\|[1-9]\d*\)\%(\.\d\+\)\=\%([eE][-+]\=\d\+\)\=\>" display
-syn region  graphqlString   start=+"+  skip=+\\\\\|\\"+  end=+"\|$+
-syn region  graphqlString   start=+"""+ skip=+\\"""+ end=+"""+
+syn region  graphqlString   start=+"+  skip=+\\\\\|\\"+  end=+"\|$+  contains=graphqlEscape
+syn region  graphqlString   start=+"""+ skip=+\\"""+ end=+"""+  contains=graphqlEscape
+
+syn match   graphqlEscape   +\\["\\/bfnrt]+ contained display
+syn match   graphqlEscape   +\\u\x\{4}+     contained display
+syn match   graphqlEscape   +\\u{\x\+}+     contained display
+syn match   graphqlEscape   +\\""\"+        contained display
 
 syn keyword graphqlKeyword repeatable nextgroup=graphqlKeyword skipwhite
 syn keyword graphqlKeyword on nextgroup=graphqlType,graphqlDirectiveLocation skipwhite
@@ -88,6 +93,7 @@ hi def link graphqlBoolean          Boolean
 hi def link graphqlNull             Keyword
 hi def link graphqlNumber           Number
 hi def link graphqlString           String
+hi def link graphqlEscape           Special
 
 hi def link graphqlDirective        PreProc
 hi def link graphqlDirectiveLocation Special
