@@ -1,4 +1,4 @@
-# https://graphql.github.io/graphql-spec/June2018/#sec-Int
+# https://spec.graphql.org/September2025/#sec-Int
 Given graphql (Integers):
   0
   -1
@@ -7,7 +7,7 @@ Execute (Integer assertions):
   AssertEqual 'graphqlNumber', SyntaxOf('0')
   AssertEqual 'graphqlNumber', SyntaxOf('-1')
 
-# https://graphql.github.io/graphql-spec/June2018/#sec-Float
+# https://spec.graphql.org/September2025/#sec-Float
 Given graphql (Floats):
   1.0
   -1.0
@@ -26,7 +26,7 @@ Execute (Float assertions):
   AssertEqual 'graphqlNumber', SyntaxOf('1e+10')
   AssertEqual 'graphqlNumber', SyntaxOf('1.0e10')
 
-# https://graphql.github.io/graphql-spec/June2018/#sec-Boolean
+# https://spec.graphql.org/September2025/#sec-Boolean
 Given graphql (Booleans):
   true
   false
@@ -35,7 +35,7 @@ Execute (Boolean assertions):
   AssertEqual 'graphqlBoolean', SyntaxOf('true')
   AssertEqual 'graphqlBoolean', SyntaxOf('false')
 
-# https://graphql.github.io/graphql-spec/June2018/#sec-String
+# https://spec.graphql.org/September2025/#sec-String
 Given graphql (Strings):
   ""
   "Hello World"
@@ -72,7 +72,7 @@ Execute (Escape Sequence assertions):
   AssertEqual 'graphqlEscape', SyntaxAt(6, 7)
   AssertEqual 'graphqlEscape', SyntaxAt(7, 9)
 
-# https://graphql.github.io/graphql-spec/June2018/#sec-Field-Arguments
+# https://spec.graphql.org/September2025/#sec-Field-Arguments
 Given graphql (Arguments):
   query queryName($site: Site = MOBILE) {
     user(id: 4) {
@@ -90,7 +90,7 @@ Execute (Argument assertions):
   AssertEqual 'graphqlName', SyntaxOf('size')
   AssertEqual 'graphqlNumber', SyntaxOf('100')
 
-# https://graphql.github.io/graphql-spec/June2018/#sec-Type-Conditions
+# https://spec.graphql.org/September2025/#sec-Type-Conditions
 Given graphql (Type Conditions):
   query FragmentTyping {
     profiles(handles: ["zuck", "cocacola"]) {
@@ -112,7 +112,7 @@ Execute (Type Condition assertions):
   AssertEqual 'graphqlKeyword', SyntaxOf('on')
   AssertEqual 'graphqlType', SyntaxOf('User')
 
-# https://graphql.github.io/graphql-spec/June2018/#sec-Inline-Fragments
+# https://spec.graphql.org/September2025/#sec-Inline-Fragments
 Given graphql (Inline Framents):
   query inlineFragmentTyping {
     profiles(handles: ["zuck", "cocacola"]) {
@@ -140,7 +140,7 @@ Execute (Schema assertions):
   AssertEqual 'graphqlName', SyntaxOf('query')
   AssertEqual 'graphqlType', SyntaxOf('QueryType')
 
-# https://spec.graphql.org/October2021/#sec-Type-System.Directives
+# https://spec.graphql.org/September2025/#sec-Type-System.Directives
 Given graphql (Directives):
   directive @include(if: Boolean!)
     on FIELD
@@ -159,7 +159,7 @@ Execute (Directive assertions):
   AssertEqual 'graphqlDirectiveLocation', SyntaxOf('INLINE_FRAGMENT')
   AssertEqual 'graphqlOperator', SyntaxOf('|')
 
-# https://spec.graphql.org/October2021/#sec-Objects
+# https://spec.graphql.org/September2025/#sec-Objects
 Given graphql (Objects):
   type Type implements Interface1 & Interface2 {
     name: Thing
