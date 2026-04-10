@@ -25,6 +25,10 @@ call graphql#embed_syntax('javaScriptGraphQL')
 
 let s:tags = '\%(' . join(graphql#javascript_tags(), '\|') . '\)'
 let s:functions = '\%(' . join(graphql#javascript_functions(), '\|') . '\)'
+let s:has_functions = !empty(graphql#javascript_functions())
+if s:has_functions
+  let s:function_call = '\%(' . s:functions . '\s*(\_s*\)'
+endif
 
 exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ '
       \ 'nextgroup=graphqlTemplateString'
@@ -32,10 +36,12 @@ exec 'syntax region graphqlTemplateString matchgroup=javaScriptStringT '
       \ 'start=+' . s:tags . '\@20<=`+ skip=+\\\\\|\\`+ end=+`+ '
       \ 'contains=@javaScriptGraphQL,javaScriptSpecial,javaScriptEmbed,@htmlPreproc '
       \ 'extend'
-exec 'syntax region graphqlTemplateString matchgroup=javaScriptStringT '
-      \ 'start=+\%(' . s:functions . '\s*(\)\@40<=`+ skip=+\\\\\|\\`+ end=+`+ '
-      \ 'contains=@javaScriptGraphQL,javaScriptSpecial,javaScriptEmbed,@htmlPreproc '
-      \ 'extend'
+if s:has_functions
+  exec 'syntax region graphqlTemplateString matchgroup=javaScriptStringT '
+        \ 'start=+' . s:function_call . '\@80<=`+ skip=+\\\\\|\\`+ end=+`+ '
+        \ 'contains=@javaScriptGraphQL,javaScriptSpecial,javaScriptEmbed,@htmlPreproc '
+        \ 'extend'
+endif
 syntax region graphqlTemplateString matchgroup=javaScriptStringT
       \ start=+`#\s\{,4\}\(gql\|graphql\)\>\s*$+ skip=+\\\\\|\\`+ end=+`+
       \ contains=@javaScriptGraphQL,javaScriptSpecial,javaScriptEmbed,@htmlPreproc
@@ -58,9 +64,11 @@ if hlexists('jsTemplateString')
   exec 'syntax region graphqlTemplateString matchgroup=jsTemplateString '
         \ 'start=+' . s:tags . '\@20<=`+ skip=+\\`+ end=+`+ '
         \ 'contains=@javaScriptGraphQL,jsTemplateExpression,jsSpecial extend'
-  exec 'syntax region graphqlTemplateString matchgroup=jsTemplateString '
-        \ 'start=+\%(' . s:functions . '\s*(\)\@40<=`+ skip=+\\`+ end=+`+ '
-        \ 'contains=@javaScriptGraphQL,jsTemplateExpression,jsSpecial extend'
+  if s:has_functions
+    exec 'syntax region graphqlTemplateString matchgroup=jsTemplateString '
+          \ 'start=+' . s:function_call . '\@80<=`+ skip=+\\`+ end=+`+ '
+          \ 'contains=@javaScriptGraphQL,jsTemplateExpression,jsSpecial extend'
+  endif
   syntax region graphqlTemplateString matchgroup=jsTemplateString
         \ start=+`#\s\{,4\}\(gql\|graphql\)\>\s*$+ skip=+\\`+ end=+`+
         \ contains=@javaScriptGraphQL,jsTemplateExpression,jsSpecial extend
