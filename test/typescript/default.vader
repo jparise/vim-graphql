@@ -102,3 +102,21 @@ Execute (Syntax assertions):
   AssertEqual 'typescriptTemplate', SyntaxOf('`')
   AssertEqual 'typescriptTemplateSB', SyntaxOf('${uid}')
   AssertEqual 'graphqlName', SyntaxOf('user')
+
+Given typescript (Template literal with a multiline graphql() function call):
+  graphql(
+    `
+    {
+      user(id: ${uid}) {
+        firstName
+        lastName
+      }
+    }
+    `,
+    [],
+  );
+
+Execute (Syntax assertions):
+  AssertEqual 'typescript', b:current_syntax
+  AssertEqual 'typescriptTemplateSB', SyntaxOf('${uid}')
+  AssertEqual 'graphqlName', SyntaxOf('user')
