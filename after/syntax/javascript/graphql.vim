@@ -23,15 +23,17 @@
 
 call graphql#embed_syntax('javaScriptGraphQL')
 
-let s:tags = '\%(' . join(graphql#javascript_tags(), '\|') . '\)'
+let s:tags = graphql#javascript_tags()
 let s:functions = graphql#javascript_functions()
 
-exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ '
-      \ 'nextgroup=graphqlTemplateString'
-exec 'syntax region graphqlTemplateString matchgroup=javaScriptStringT '
-      \ 'start=+' . s:tags . '\@20<=`+ skip=+\\\\\|\\`+ end=+`+ '
-      \ 'contains=@javaScriptGraphQL,javaScriptSpecial,javaScriptEmbed,@htmlPreproc '
-      \ 'extend'
+if !empty(s:tags)
+  exec 'syntax match graphqlTaggedTemplate +\%(' . join(s:tags, '\|') . '\)\ze`+ '
+        \ 'nextgroup=graphqlTemplateString'
+  exec 'syntax region graphqlTemplateString matchgroup=javaScriptStringT '
+        \ 'start=+\%(' . join(s:tags, '\|') . '\)\@20<=`+ skip=+\\\\\|\\`+ end=+`+ '
+        \ 'contains=@javaScriptGraphQL,javaScriptSpecial,javaScriptEmbed,@htmlPreproc '
+        \ 'extend'
+endif
 if !empty(s:functions)
   exec 'syntax match graphqlFunctionCall +\%(' . join(s:functions, '\|') . '\)\s*(+ '
         \ 'nextgroup=graphqlFunctionLiteral skipwhite skipnl'
@@ -61,9 +63,11 @@ syn cluster graphqlTaggedTemplate add=graphqlTemplateString,graphqlFunctionLiter
 
 " pangloss/vim-javascript
 if hlexists('jsTemplateString')
-  exec 'syntax region graphqlTemplateString matchgroup=jsTemplateString '
-        \ 'start=+' . s:tags . '\@20<=`+ skip=+\\`+ end=+`+ '
-        \ 'contains=@javaScriptGraphQL,jsTemplateExpression,jsSpecial extend'
+  if !empty(s:tags)
+    exec 'syntax region graphqlTemplateString matchgroup=jsTemplateString '
+          \ 'start=+\%(' . join(s:tags, '\|') . '\)\@20<=`+ skip=+\\`+ end=+`+ '
+          \ 'contains=@javaScriptGraphQL,jsTemplateExpression,jsSpecial extend'
+  endif
   if !empty(s:functions)
     exec 'syntax match graphqlFunctionCall +\%(' . join(s:functions, '\|') . '\)\s*(+ '
           \ 'nextgroup=graphqlFunctionLiteral skipwhite skipnl'

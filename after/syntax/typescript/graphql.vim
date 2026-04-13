@@ -23,11 +23,16 @@
 
 call graphql#embed_syntax('typescriptGraphQL')
 
-let s:tags = '\%(' . join(graphql#javascript_tags(), '\|') . '\)'
+let s:tags = graphql#javascript_tags()
 let s:functions = graphql#javascript_functions()
 
-exec 'syntax region graphqlTemplateString matchgroup=typescriptTemplate start=+' . s:tags . '\@20<=`+ skip=+\\`+ end=+`+ contains=@typescriptGraphQL,typescriptTemplateSubstitution extend'
-exec 'syntax match graphqlTaggedTemplate +' . s:tags . '\ze`+ nextgroup=graphqlTemplateString'
+if !empty(s:tags)
+  exec 'syntax region graphqlTemplateString matchgroup=typescriptTemplate '
+        \ 'start=+\%(' . join(s:tags, '\|') . '\)\@20<=`+ skip=+\\`+ end=+`+ '
+        \ 'contains=@typescriptGraphQL,typescriptTemplateSubstitution extend'
+  exec 'syntax match graphqlTaggedTemplate +\%(' . join(s:tags, '\|') . '\)\ze`+ '
+        \ 'nextgroup=graphqlTemplateString'
+endif
 if !empty(s:functions)
   exec 'syntax match graphqlFunctionCall +\%(' . join(s:functions, '\|') . '\)\s*(+ '
         \ 'nextgroup=graphqlFunctionLiteral skipwhite skipnl'
