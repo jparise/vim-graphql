@@ -99,6 +99,7 @@ Given typescript (Template literal with a graphql() function):
 
 Execute (Syntax assertions):
   AssertEqual 'typescript', b:current_syntax
+  AssertEqual 'graphqlFunctionCall', SyntaxOf('graphql')
   AssertEqual 'typescriptTemplate', SyntaxOf('`')
   AssertEqual 'typescriptTemplateSB', SyntaxOf('${uid}')
   AssertEqual 'graphqlName', SyntaxOf('user')
@@ -118,5 +119,6 @@ Given typescript (Template literal with a multiline graphql() function call):
 
 Execute (Syntax assertions):
   AssertEqual 'typescript', b:current_syntax
+  AssertEqual 'graphqlFunctionCall', SyntaxOf('graphql')
   AssertEqual 'typescriptTemplateSB', SyntaxOf('${uid}')
   AssertEqual 'graphqlName', SyntaxOf('user')

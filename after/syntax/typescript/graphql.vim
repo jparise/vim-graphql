@@ -34,8 +34,8 @@ if !empty(s:tags)
         \ 'nextgroup=graphqlTemplateString'
 endif
 if !empty(s:functions)
-  exec 'syntax match graphqlFunctionCall +\%(' . join(s:functions, '\|') . '\)\s*(+ '
-        \ 'nextgroup=graphqlFunctionLiteral skipwhite skipnl'
+  exec 'syntax match graphqlFunctionCall +\%(' . join(s:functions, '\|') . '\)\ze\s*(+ '
+        \ 'nextgroup=typescriptFuncCallArg skipwhite skipnl'
   syntax region graphqlFunctionLiteral matchgroup=typescriptTemplate
         \ start=+`+ skip=+\\`+ end=+`+
         \ contains=@typescriptGraphQL,typescriptTemplateSubstitution
@@ -56,6 +56,7 @@ syntax region graphqlTemplateString
 
 hi def link graphqlTemplateString typescriptTemplate
 hi def link graphqlFunctionLiteral typescriptTemplate
+hi def link graphqlFunctionCall typescriptFuncName
 hi def link graphqlTemplateExpression typescriptTemplateSubstitution
 
 syn cluster typescriptExpression add=graphqlTaggedTemplate,graphqlFunctionCall
