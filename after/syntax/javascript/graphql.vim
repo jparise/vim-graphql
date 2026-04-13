@@ -35,8 +35,11 @@ if !empty(s:tags)
         \ 'extend'
 endif
 if !empty(s:functions)
-  exec 'syntax match graphqlFunctionCall +\%(' . join(s:functions, '\|') . '\)\s*(+ '
-        \ 'nextgroup=graphqlFunctionLiteral skipwhite skipnl'
+  exec 'syntax match graphqlFunctionCall +\%(' . join(s:functions, '\|') . '\)\ze\s*(+ '
+        \ 'nextgroup=graphqlFunctionArgs skipwhite skipnl'
+  syntax region graphqlFunctionArgs start=+(+ end=+)+
+        \ contains=graphqlFunctionLiteral
+        \ contained transparent extend
   syntax region graphqlFunctionLiteral matchgroup=javaScriptStringT
         \ start=+`+ skip=+\\\\\|\\`+ end=+`+
         \ contains=@javaScriptGraphQL,javaScriptSpecial,javaScriptEmbed,@htmlPreproc
@@ -69,8 +72,11 @@ if hlexists('jsTemplateString')
           \ 'contains=@javaScriptGraphQL,jsTemplateExpression,jsSpecial extend'
   endif
   if !empty(s:functions)
-    exec 'syntax match graphqlFunctionCall +\%(' . join(s:functions, '\|') . '\)\s*(+ '
-          \ 'nextgroup=graphqlFunctionLiteral skipwhite skipnl'
+    exec 'syntax match graphqlFunctionCall +\%(' . join(s:functions, '\|') . '\)\ze\s*(+ '
+          \ 'nextgroup=graphqlFunctionArgs skipwhite skipnl'
+    syntax region graphqlFunctionArgs matchgroup=jsParens start=+(+ end=+)+
+          \ contains=@jsExpression,graphqlFunctionLiteral
+          \ contained extend fold
     syntax region graphqlFunctionLiteral matchgroup=jsTemplateString
           \ start=+`+ skip=+\\`+ end=+`+
           \ contains=@javaScriptGraphQL,jsTemplateExpression,jsSpecial
@@ -88,7 +94,7 @@ if hlexists('jsTemplateString')
   hi! def link graphqlTemplateString jsTemplateString
   hi! def link graphqlFunctionLiteral jsTemplateString
   hi! def link graphqlTaggedTemplate jsTaggedTemplate
-  hi! def link graphqlFunctionCall jsTaggedTemplate
+  hi! def link graphqlFunctionCall jsFuncCall
   hi! def link graphqlTemplateExpression jsTemplateExpression
 
   syn cluster jsExpression add=graphqlTemplateString,graphqlTaggedTemplate,graphqlFunctionCall
