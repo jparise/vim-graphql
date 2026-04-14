@@ -1,8 +1,11 @@
 VIM_EXE ?= vim
 
-.PHONY: lint test
+.PHONY: lint install-vint test
 
 all: lint test
+
+install-vint:
+	pip install vim-vint==0.4a3
 
 lint: .bundle/vim-vimhelplint
 	vint -s after autoload ftdetect ftplugin indent syntax
